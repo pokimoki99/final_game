@@ -5,6 +5,8 @@ public class BulletFireScript : MonoBehaviour
 {
 
     public Transform bulletprefab;
+    public GameObject Gun_pos;
+    Vector3 gun;
     // Use this for initialization
     void Start()
     {
@@ -16,7 +18,8 @@ public class BulletFireScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1")&&(GameManager.Instance.ammocount>0))
         {
-            Instantiate(bulletprefab, transform.position, transform.rotation);
+            gun = new Vector3(Gun_pos.transform.position.x, Gun_pos.transform.position.y + 0.4f,Gun_pos.transform.position.z);
+            Instantiate(bulletprefab, gun, transform.rotation);
             GameManager.Instance.fire();
         }
     }
