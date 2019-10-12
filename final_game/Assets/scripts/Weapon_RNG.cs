@@ -34,23 +34,23 @@ public class Weapon_RNG : MonoBehaviour
         //10+ Rare
         //3+ Epic
         //0+ Legendary
-        if (rarity=>60)//Common
+        if (rarity>59)//Common
         {
             COMMON();
         }
-        if (rarity=>30 && rarity<60)//uncommon
+        if (rarity>29 && rarity<60)//uncommon
         {
             UNCOMMON();
         }
-        if (rarity => 10 && rarity < 30)//rare
+        if (rarity > 9 && rarity < 30)//rare
         {
             RARE();
         }
-        if (rarity => 3 && rarity < 10)//epic
+        if (rarity > 2 && rarity < 10)//epic
         {
             EPIC();
         }
-        if (rarity => 0 && rarity < 3)//LEGENDARY
+        if (rarity > -1 && rarity < 3)//LEGENDARY
         {
             LEGENDARY();
         }
@@ -58,26 +58,26 @@ public class Weapon_RNG : MonoBehaviour
     public void COMMON()
     {
         gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
-        Instantiate(bulletprefab, gun, transform.rotation);
+        //Instantiate(bulletprefab, gun, transform.rotation);
     }
     public void UNCOMMON()
     {
         gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
-        Instantiate(bulletprefab, gun, transform.rotation);
+        //Instantiate(bulletprefab, gun, transform.rotation);
     }
     public void RARE()
     {
         gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
-        Instantiate(bulletprefab, gun, transform.rotation);
+        //Instantiate(bulletprefab, gun, transform.rotation);
     }
     public void EPIC()
     {
         gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
-        Instantiate(bulletprefab, gun, transform.rotation);
+        //Instantiate(bulletprefab, gun, transform.rotation);
     }
     public void LEGENDARY()
     {
         gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
-        Instantiate(bulletprefab, gun, transform.rotation);
+        //Instantiate(bulletprefab, gun, transform.rotation);
     }
 }
