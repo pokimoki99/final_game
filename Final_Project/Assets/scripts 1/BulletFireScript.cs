@@ -18,7 +18,7 @@ public class BulletFireScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1")&&(GameManager.Instance.ammocount>0))
         {
-            gun = new Vector3(Gun_pos.transform.position.x, Gun_pos.transform.position.y + 0.4f,Gun_pos.transform.position.z);
+            gun = new Vector3(Gun_pos.transform.position.x, Gun_pos.transform.position.y,Gun_pos.transform.position.z);
             Instantiate(bulletprefab, gun, transform.rotation);
             GameManager.Instance.fire();
         }
