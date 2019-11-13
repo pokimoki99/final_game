@@ -29,5 +29,13 @@ public class Player : MonoBehaviour
         }
         //Destory(other.gameOject);
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "Checkpoint_1")
+        {
+            Destroy(other.gameObject);
+        }
+
+    }
 
 }

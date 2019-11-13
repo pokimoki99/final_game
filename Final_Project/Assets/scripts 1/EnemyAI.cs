@@ -28,7 +28,7 @@ public class EnemyAI : MonoBehaviour
 
     float enemydist;   //how far away is enemy
 
-    Text messagetext;
+    //Text messagetext;
 
     void Awake()
     {
@@ -43,7 +43,7 @@ public class EnemyAI : MonoBehaviour
 
         state = AIState.Patrolling;
 
-        messagetext = GameObject.Find("MessageText").GetComponent<Text>();
+        //messagetext = GameObject.Find("MessageText").GetComponent<Text>();
        
     }
 
@@ -72,11 +72,11 @@ public class EnemyAI : MonoBehaviour
         }
         
         enemydist = Vector3.Distance(player.transform.position, transform.position);
-        if (enemydist >= 30)
+        if (enemydist >= 10)
         {
             state = AIState.Patrolling;
         }
-        if (enemydist<=30)
+        if (enemydist<=10)
         {
             state = AIState.Chasing;
         }
@@ -94,7 +94,7 @@ public class EnemyAI : MonoBehaviour
 
     void Chasing()
     {
-        messagetext.text = "Chasing: Nav rem dist= " + nav.remainingDistance + " navstop=" + nav.stoppingDistance;
+        //messagetext.text = "Chasing: Nav rem dist= " + nav.remainingDistance + " navstop=" + nav.stoppingDistance;
 
         nav.destination = player.transform.position;
         nav.speed = chaseSpeed;
@@ -107,7 +107,7 @@ public class EnemyAI : MonoBehaviour
         nav.isStopped = false;
         text = "Nav rem dist= " + nav.remainingDistance + " navstop=" + nav.stoppingDistance + " wp = " + wayPointIndex + "dest " + patrolWayPoints[wayPointIndex].position;
 
-        messagetext.text = "Patrolling: " + text;
+        //messagetext.text = "Patrolling: " + text;
 
         // Set an appropriate speed for the NavMeshAgent.
         nav.speed = patrolSpeed;
