@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 381316963}
   - component: {fileID: 381316962}
   - component: {fileID: 381316964}
+  - component: {fileID: 381316965}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -532,6 +533,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Story_text: {fileID: 1161212872}
+--- !u!114 &381316965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381316961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fcf7818388ea4f42aeec0eda613f1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rarity_switch: 0
+  Gun_pos: {fileID: 1947853681}
 --- !u!1001 &390962984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,6 +612,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -871,6 +890,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: erika_archer_bow_arrow@Walking
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 093870610c4404e499aa53218c9aaa7e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 093870610c4404e499aa53218c9aaa7e,
         type: 3}
@@ -1244,6 +1268,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &1171819484
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171819479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.8095942
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9047971, z: 0}
 --- !u!1 &1406773003
 GameObject:
   m_ObjectHideFlags: 0
