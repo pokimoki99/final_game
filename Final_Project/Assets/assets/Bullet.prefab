@@ -8,7 +8,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6960390530339463952}
   serializedVersion: 2
-  m_Mass: 0.5
+  m_Mass: 0.4
   m_Drag: 0
   m_AngularDrag: 1
   m_UseGravity: 1
@@ -140,6 +140,7 @@ MonoBehaviour:
   explosionprefab: {fileID: 1000011079123858, guid: f16d2853ce7e784459003cf4140eca61,
     type: 3}
   force: 500
+  shotgun_spread: 1
 --- !u!1001 &6960390530339562928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e6208b5d38119f3418ce89fc5c972665, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.87
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: e6208b5d38119f3418ce89fc5c972665, type: 3}
       propertyPath: m_LocalRotation.y
@@ -245,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: e6208b5d38119f3418ce89fc5c972665, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.87
+      value: -0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6208b5d38119f3418ce89fc5c972665, type: 3}
