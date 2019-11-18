@@ -9,6 +9,7 @@ public class BulletScript : MonoBehaviour
     public GameObject explosionprefab;
     public float force = 500.0f;
     public bool shotgun_spread = false;
+    public bool Assault_rifle_spread = false;
     Weapon_RNG _rng;
     Vector3 rand;
 
@@ -24,6 +25,11 @@ public class BulletScript : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(transform.forward * force);
 
         }
+        else if(Assault_rifle_spread == true)
+        {
+
+        }
+
         else
         {
             GetComponent<Rigidbody>().AddForce(transform.forward * force);

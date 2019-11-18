@@ -15,6 +15,7 @@ public class BulletFireScript : MonoBehaviour
 
     Vector3 gun;
     public bool shotgun = false;
+    public bool assault_rifle = false;
     // Use this for initialization
     BulletScript spread;
     // Use this for initialization
@@ -63,5 +64,12 @@ public class BulletFireScript : MonoBehaviour
             }
 
         }
+        if (Input.GetMouseButton(0) && (GameManager.Instance.ammocount > 0))
+        {
+            gun = new Vector3(Gun_pos.transform.position.x, Gun_pos.transform.position.y, Gun_pos.transform.position.z);
+            Instantiate(bulletprefab, gun, transform.rotation);
+            GameManager.Instance.fire();
+        }
+
     }
 }
