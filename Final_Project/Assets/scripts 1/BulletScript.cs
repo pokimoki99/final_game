@@ -16,6 +16,7 @@ public class BulletScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), GetComponent<Collider>());
         if (shotgun_spread == true)
         {
             //GetComponent<Rigidbody>().AddForce((transform.forward+rand) * force);
