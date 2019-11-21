@@ -21,13 +21,14 @@ public class BulletScript : MonoBehaviour
             //GetComponent<Rigidbody>().AddForce((transform.forward+rand) * force);
             //GetComponent<Rigidbody>().AddForce(rand * force);
             //bullet.transform.Rotate(0.0f,bullet.transform.rotation.y + 10.0f,0.0f);
-            Debug.Log("work?");
+            Debug.Log("shotgun?");
             GetComponent<Rigidbody>().AddForce(transform.forward * force);
 
         }
         else if(Assault_rifle_spread == true)
         {
-
+            Debug.Log("rifle?");
+            GetComponent<Rigidbody>().AddForce(transform.forward * force);
         }
 
         else

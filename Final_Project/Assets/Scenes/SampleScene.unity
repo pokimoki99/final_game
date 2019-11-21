@@ -1947,12 +1947,28 @@ PrefabInstance:
     - target: {fileID: 920964660453521265, guid: 715e523d14027df4298f31d4fe08eef5,
         type: 3}
       propertyPath: shotgun
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920964660453521265, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: assault_rifle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 920964660453521265, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: spread
+      value: 
+      objectReference: {fileID: 616501448812119199, guid: 757c3c2698cb4fe478baf4b3bfc302e6,
+        type: 3}
     - target: {fileID: 920964661340059854, guid: 715e523d14027df4298f31d4fe08eef5,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 920964660711556602, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.36
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 715e523d14027df4298f31d4fe08eef5, type: 3}

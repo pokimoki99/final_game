@@ -14,10 +14,10 @@ public class BulletFireScript : MonoBehaviour
     public GameObject Shotgun_pos_5;
 
     Vector3 gun;
-    public bool shotgun = false;
-    public bool assault_rifle = false;
+    //public bool shotgun = false;
+    //public bool assault_rifle = false;
     // Use this for initialization
-    BulletScript spread;
+    public BulletScript spread;
     // Use this for initialization
     void Start()
     {
@@ -27,10 +27,11 @@ public class BulletFireScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")&&(GameManager.Instance.ammocount>0))
+        if (Input.GetButtonDown("Fire1") && (GameManager.Instance.ammocount > 0))
         {
-            if (shotgun == true)
+            if (spread.shotgun_spread == true)
             {
+                //assault_rifle = false;
                 gun = new Vector3(Shotgun_pos.transform.position.x, Shotgun_pos.transform.position.y, Shotgun_pos.transform.position.z);
                 Instantiate(bulletprefab, gun, transform.rotation);
                 GameManager.Instance.fire();
@@ -66,10 +67,14 @@ public class BulletFireScript : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && (GameManager.Instance.ammocount > 0))
         {
-            gun = new Vector3(Gun_pos.transform.position.x, Gun_pos.transform.position.y, Gun_pos.transform.position.z);
-            Instantiate(bulletprefab, gun, transform.rotation);
-            GameManager.Instance.fire();
-        }
+            if (spread.Assault_rifle_spread == true)
+            {
+                //shotgun = false;
+                gun = new Vector3(Gun_pos.transform.position.x, Gun_pos.transform.position.y, Gun_pos.transform.position.z);
+                Instantiate(bulletprefab, gun, transform.rotation);
+                GameManager.Instance.fire();
+            }
 
+        }
     }
 }
