@@ -1,16 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BulletScript : MonoBehaviour
 {
 
     GameManager gm;
     GameObject explosion;
+
+
+    public GameObject bullet;
     public GameObject explosionprefab;
+
+
     public float force = 500.0f;
+
+
+    public bool pistol_spread = false;
     public bool shotgun_spread = false;
     public bool Assault_rifle_spread = false;
-    Weapon_RNG _rng;
+    public bool sniper_spread = false;
+
+    //public healthbar _hp;
+
+
     Vector3 rand;
 
     // Use this for initialization
@@ -19,55 +32,63 @@ public class BulletScript : MonoBehaviour
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), GetComponent<Collider>());
         if (shotgun_spread == true)
         {
-            //GetComponent<Rigidbody>().AddForce((transform.forward+rand) * force);
-            //GetComponent<Rigidbody>().AddForce(rand * force);
-            //bullet.transform.Rotate(0.0f,bullet.transform.rotation.y + 10.0f,0.0f);
-            Debug.Log("shotgun?");
-            GetComponent<Rigidbody>().AddForce(transform.forward * force);
+            GetComponent<Rigidbody>().AddForce(transform.forward * (force - 250.0f));
+            Debug.Log("work?");
 
         }
-        else if(Assault_rifle_spread == true)
+        else if (sniper_spread == true)
+
+        {
+            GetComponent<Rigidbody>().AddForce(transform.forward * (force * 10));
+        }
+        else if (Assault_rifle_spread == true)
         {
             Debug.Log("rifle?");
+            GetComponent<Rigidbody>().AddForce(transform.forward * (force + 200.0f));
+        }
+        else if (pistol_spread == true)
+        {
+            Debug.Log("pistol?");
+            GetComponent<Rigidbody>().AddForce(transform.forward * force);
+        }
+        else
+        {
+            Debug.Log("something else?");
             GetComponent<Rigidbody>().AddForce(transform.forward * force);
         }
 
-        else
-        {
-            GetComponent<Rigidbody>().AddForce(transform.forward * force);
-        }
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        _rng = GameObject.Find("GameManager").GetComponent<Weapon_RNG>();
+
+
     }
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Enemy")
-        {
-            //gm.incscore(10);
-            //Destroy(col.gameObject);// the cube
-            //explosion = Instantiate(explosionprefab, this.transform.position, this.transform.rotation) as GameObject;
-            //Destroy(explosion, 5.0f); // the explosion
-            _rng.rarity_switch = true;
-            _rng.Random_system();
-        }
+
         if (col.gameObject.tag == "Terrain")
         {
             Destroy(gameObject);
 
         }
+        if (col.gameObject.tag == "Player")
+        {
+            //GetComponent<healthbar.Health>().Damage(DamageAmount: 10);
+            //healthbar.Health.Damage(5);
+            //_hp.health.Damage(5);
 
-
-        //Destroy(gameObject); // the bullet
-
+            //healthbar.
+            gm.incscore(1);
+            Destroy(gameObject);
+        }
     }
+
     void main()
     {
-        if (gameObject.transform.position.y <=0)
+        if (gameObject.transform.position.y <= 0)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
-        
+
     }
     public void random()
     {

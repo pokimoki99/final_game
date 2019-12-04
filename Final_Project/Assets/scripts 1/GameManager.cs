@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
 
+    public bool pistol, shotgun, sniper, rifle = false;
+
     // This is a C# property - the code below isn't using it
     // as it is accessing the private static instance directly.
     // Use this property from other classes.
@@ -36,6 +38,17 @@ public class GameManager : MonoBehaviour
     {
         scoretext.text = "Score: " + score;
         ammotext.text = "Ammo: " + ammocount;
+       
+    }
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.R))
+        {
+            ammocount = 0;
+            Reload();
+        }
+        Ammo();
+        UpdateScore();
     }
 
     // set the score
@@ -79,5 +92,63 @@ public class GameManager : MonoBehaviour
         ammocount += 10;
         if (ammocount > 100) ammocount = 100;
         UpdateScore();
+    }
+    public void Ammo()
+    {
+        if (score == 0)
+        {
+            if (pistol == false)
+            {
+                ammocount = 15;
+                pistol = true;
+            }
+        }
+        if (score == 1)
+        {
+            if (shotgun == false)
+            {
+                ammocount = 28;
+                shotgun = true;
+            }
+        }
+        if (score == 2)
+        {
+            if (rifle == false)
+            {
+                ammocount = 40;
+                rifle = true;
+            }
+        }
+        if (score == 3)
+        {
+            if (sniper == false)
+            {
+                ammocount = 1;
+                sniper = true;
+            }
+        }
+    }
+    public void Reload()
+    {
+        StartCoroutine(Reload_mechanic());
+    }
+    IEnumerator Reload_mechanic()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        yield return new WaitForSeconds(1);
+        pistol = true;
+        shotgun = true;
+        rifle = true;
+        sniper = true;
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        pistol = false;
+        shotgun = false;
+        rifle = false;
+        sniper = false;
+        yield return new WaitForSeconds(1);
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }
