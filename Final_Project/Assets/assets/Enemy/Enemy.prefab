@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 6427669862731398293}
   - component: {fileID: 6427669862731398292}
   m_Layer: 0
-  m_Name: erika_archer_bow_arrow@Walking
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1193,9 +1193,13 @@ MonoBehaviour:
   patrolWayPoints:
   - {fileID: 0}
   - {fileID: 0}
+  WayPoints: {fileID: 0}
   text: 
   timeBetweenAttacks: 0.9
   attackDamage: 10
+  enemybullet: {fileID: 6960390530339962672, guid: 1ad2ef442c5ac794cbce62e9a2a48488,
+    type: 3}
+  bulletpos: {fileID: 6427669862340021244}
 --- !u!195 &6427669862731398292
 NavMeshAgent:
   m_ObjectHideFlags: 0

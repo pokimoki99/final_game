@@ -7,7 +7,8 @@ public class EnemyAI : MonoBehaviour
     public float patrolSpeed = 2f;                          // The nav mesh agent's speed when patrolling.
     public float chaseSpeed = 5f;                           // The nav mesh agent's speed when chasing.
     public float patrolWaitTime = 5f;                       // The amount of time to wait when the patrol way point is reached.
-    public Transform[] patrolWayPoints;         // An array of transforms for the patrol route.
+    public DrawWaypoint[] patrolWayPoints;         // An array of transforms for the patrol route.
+    public DrawWaypoint WayPoints;         // An array of transforms for the patrol route.
 
     private UnityEngine.AI.NavMeshAgent nav;                                // Reference to the nav mesh agent.
     private Transform player;                               // Reference to the player's transform.
@@ -43,6 +44,8 @@ public class EnemyAI : MonoBehaviour
         //playerHealth = play.GetComponent<Playerhp>();
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        patrolWayPoints = FindObjectsOfType<DrawWaypoint>();
        
 
         state = AIState.Patrolling;
@@ -130,9 +133,6 @@ public class EnemyAI : MonoBehaviour
     void Patrolling()
     {
         nav.isStopped = false;
-        text = "Nav rem dist= " + nav.remainingDistance + " navstop=" + nav.stoppingDistance + " wp = " + wayPointIndex + "dest " + patrolWayPoints[wayPointIndex].position;
-
-        //messagetext.text = "Patrolling: " + text;
 
         // Set an appropriate speed for the NavMeshAgent.
         nav.speed = patrolSpeed;
@@ -148,11 +148,11 @@ public class EnemyAI : MonoBehaviour
             // If the timer exceeds the wait time...
             if (patrolTimer >= patrolWaitTime)
             {
-                // ... increment the wayPointIndex.
-                if (wayPointIndex == patrolWayPoints.Length - 1)
-                    wayPointIndex = 0;
-                else
-                    wayPointIndex++;
+                //// ... increment the wayPointIndex.
+                //if (wayPointIndex == patrolWayPoints.Length - 1)
+                //    wayPointIndex = 0;
+                //else
+                //    wayPointIndex++;
 
                 // Reset the timer.
                 patrolTimer = 0;
@@ -163,7 +163,8 @@ public class EnemyAI : MonoBehaviour
             patrolTimer = 0;
 
         // Set the destination to the patrolWayPoint.
-        nav.destination = patrolWayPoints[wayPointIndex].position;
+        nav.destination = WayPoints.transform.position;
+
     }
 
     IEnumerator Rapid()
