@@ -22,11 +22,15 @@ public class EnemyAI : MonoBehaviour
     //Playerhp playerHealth;                  // Reference to the player's health.
 
     float timer;                                // Timer for counting up to the next attack.
-    enum AIState { Patrolling, Chasing };
+    enum AIState { Patrolling, Shooting, Chasing };
 
     AIState state;
 
     float enemydist;   //how far away is enemy
+    public Transform enemybullet;
+    bool enemy;
+
+    public GameObject bulletpos;
 
     //Text messagetext;
 
@@ -66,6 +70,9 @@ public class EnemyAI : MonoBehaviour
             case AIState.Chasing:
                 Chasing();
                 break;
+            case AIState.Shooting:
+                Shooting();
+                break;
             case AIState.Patrolling:
                 Patrolling();
                 break;
@@ -76,9 +83,14 @@ public class EnemyAI : MonoBehaviour
         {
             state = AIState.Patrolling;
         }
-        if (enemydist<=10)
+        if (enemydist <= 20 && enemydist >= 11)
         {
-            state = AIState.Chasing;
+            state = AIState.Shooting;
+           
+        }
+        if (enemydist <= 10)
+        {
+            //state = AIState.Chasing;
         }
         if (timer >= timeBetweenAttacks && enemydist  <= 5)
         {
@@ -99,6 +111,19 @@ public class EnemyAI : MonoBehaviour
         nav.destination = player.transform.position;
         nav.speed = chaseSpeed;
         nav.isStopped = false;
+    }
+    void Shooting()
+    {
+
+        nav.speed = 0;
+        var rotation = Quaternion.LookRotation(player.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.5f);
+        if (enemy == false)
+        {
+            Instantiate(enemybullet, bulletpos.transform.position, transform.rotation);
+            StartCoroutine(Rapid());
+        }
+
     }
 
 
@@ -141,4 +166,10 @@ public class EnemyAI : MonoBehaviour
         nav.destination = patrolWayPoints[wayPointIndex].position;
     }
 
+    IEnumerator Rapid()
+    {
+        enemy = true;
+        yield return new WaitForSeconds(1.5f);
+        enemy = false;
+    }
 }

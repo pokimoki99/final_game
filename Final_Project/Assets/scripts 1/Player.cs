@@ -15,8 +15,6 @@ public class Player : MonoBehaviour
     public GameObject sniper;
     public GameObject bullet;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -115,6 +113,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.name == "Checkpoint_1")
         {
             Destroy(other.gameObject);
+            Enemy_spawner._enemy_spawn.spawn();
         }
 
     }
