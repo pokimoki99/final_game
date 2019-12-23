@@ -114,6 +114,8 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             Enemy_spawner._enemy_spawn.spawn();
+            Enemy_spawner._enemy_spawn.spawn();
+            Enemy_spawner._enemy_spawn.spawn();
         }
 
     }

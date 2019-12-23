@@ -61,7 +61,7 @@ public class Story : MonoBehaviour
         Story_text.text = text;
         if (wait==0)
         {
-            Debug.Log(wait);
+            //Debug.Log(wait);
             Traveltxt();
         }
         

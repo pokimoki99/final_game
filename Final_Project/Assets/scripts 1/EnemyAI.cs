@@ -7,8 +7,8 @@ public class EnemyAI : MonoBehaviour
     public float patrolSpeed = 2f;                          // The nav mesh agent's speed when patrolling.
     public float chaseSpeed = 5f;                           // The nav mesh agent's speed when chasing.
     public float patrolWaitTime = 5f;                       // The amount of time to wait when the patrol way point is reached.
-    public DrawWaypoint[] patrolWayPoints;         // An array of transforms for the patrol route.
-    public DrawWaypoint WayPoints;         // An array of transforms for the patrol route.
+    protected DrawWaypoint[] patrolWayPoints;         // An array of transforms for the patrol route.
+    protected DrawWaypoint WayPoints;         // An array of transforms for the patrol route.
 
     private UnityEngine.AI.NavMeshAgent nav;                                // Reference to the nav mesh agent.
     private Transform player;                               // Reference to the player's transform.
@@ -30,6 +30,7 @@ public class EnemyAI : MonoBehaviour
     float enemydist;   //how far away is enemy
     public Transform enemybullet;
     bool enemy;
+    bool loc;
 
     public GameObject bulletpos;
 
@@ -78,6 +79,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case AIState.Patrolling:
                 Patrolling();
+
                 break;
         }
         
@@ -136,34 +138,25 @@ public class EnemyAI : MonoBehaviour
 
         // Set an appropriate speed for the NavMeshAgent.
         nav.speed = patrolSpeed;
-
-        // If near the next waypoint or there is no destination...
-        //print(nav.remainingDistance);
-            //print(nav.stoppingDistance);
-        if (nav.remainingDistance < nav.stoppingDistance)
+        if (loc==false)
         {
-            // ... increment the timer.
-            patrolTimer += Time.deltaTime;
+            location();
+            loc = true;
+        }
 
-            // If the timer exceeds the wait time...
-            if (patrolTimer >= patrolWaitTime)
-            {
-                //// ... increment the wayPointIndex.
-                //if (wayPointIndex == patrolWayPoints.Length - 1)
-                //    wayPointIndex = 0;
-                //else
-                //    wayPointIndex++;
+        nav.SetDestination(WayPoints.transform.position);
 
-                // Reset the timer.
-                patrolTimer = 0;
-            }
+
+        if (nav.remainingDistance <= nav.stoppingDistance)
+        {
+            loc = false;
         }
         else
-            // If not near a destination, reset the timer.
-            patrolTimer = 0;
+        {
 
-        // Set the destination to the patrolWayPoint.
-        nav.destination = WayPoints.transform.position;
+        }
+
+
 
     }
 
@@ -172,5 +165,10 @@ public class EnemyAI : MonoBehaviour
         enemy = true;
         yield return new WaitForSeconds(1.5f);
         enemy = false;
+    }
+
+    void location()
+    {
+        WayPoints = patrolWayPoints[Random.Range(0, patrolWayPoints.Length)];
     }
 }

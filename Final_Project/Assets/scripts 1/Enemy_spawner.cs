@@ -38,7 +38,8 @@ public class Enemy_spawner : MonoBehaviour
     }
     public void spawn()
     {
-        Vector3 enemy = new Vector3(_player.transform.position.x + random(), _player.transform.position.y, _player.transform.position.z + random());
+        //Vector3 enemy = new Vector3(_player.transform.position.x + random(), _player.transform.position.y, _player.transform.position.z + random());
+        Vector3 enemy = new Vector3(_player.transform.position.x + random2(), _player.transform.position.y-5.0f, _player.transform.position.z - random());
         Instantiate(enemyprefab, enemy, transform.rotation);
     }
 
@@ -50,7 +51,12 @@ public class Enemy_spawner : MonoBehaviour
 
     float random()
     {
-        float a = Random.Range(0.0f,10.0f);
-        return a;
+        float z = Random.Range(20.0f,50.0f);
+        return z;
+    }
+    float random2()
+    {
+        float x = Random.Range(-5.0f, 5.0f);
+        return x;
     }
 }
