@@ -6,14 +6,13 @@ public class Weapon_RNG : MonoBehaviour
 {
     int rarity;
     public bool rarity_switch = false;
-    public GameObject Gun_pos;
-    GameObject Enemy_pos;
     Vector3 gun;
+
+    public EnemyHealth enemy_pos;
 
     // Start is called before the first frame update
     public void Start()
     {
-        Enemy_pos = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     public void RNG()
@@ -21,6 +20,8 @@ public class Weapon_RNG : MonoBehaviour
         if (rarity_switch == true)
         {
             rarity = Random.Range(0, 100);
+            //rarity = Random.Range(0, 1000000);
+            Random_system();
             rarity_switch = false;
         }
 
@@ -62,31 +63,31 @@ public class Weapon_RNG : MonoBehaviour
     }
     public void COMMON()
     {
-        gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
+        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
         //Instantiate(bulletprefab, gun, transform.rotation);
         Debug.Log("Common drop");
     }
     public void UNCOMMON()
     {
-        gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
+        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
         //Instantiate(bulletprefab, gun, transform.rotation);
         Debug.Log("Uncommon drop");
     }
     public void RARE()
     {
-        gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
+        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
         //Instantiate(bulletprefab, gun, transform.rotation);
         Debug.Log("Rare drop");
     }
     public void EPIC()
     {
-        gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
+        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
         //Instantiate(bulletprefab, gun, transform.rotation);
         Debug.Log("Epic drop");
     }
     public void LEGENDARY()
     {
-        gun = new Vector3(Enemy_pos.transform.position.x, Enemy_pos.transform.position.y + 0.4f, Enemy_pos.transform.position.z);
+        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
         //Instantiate(bulletprefab, gun, transform.rotation);
         Debug.Log("Legendary drop");
     }

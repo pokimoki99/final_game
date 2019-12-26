@@ -70,13 +70,13 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
 
         }
+        if (col.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+
+        }
         if (col.gameObject.tag == "Player")
         {
-            //GetComponent<healthbar.Health>().Damage(DamageAmount: 10);
-            //healthbar.Health.Damage(5);
-            //_hp.health.Damage(5);
-
-            //healthbar.
             gm.incscore(1);
             Destroy(gameObject);
         }

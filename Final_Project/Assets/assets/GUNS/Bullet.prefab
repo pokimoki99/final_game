@@ -143,7 +143,7 @@ MonoBehaviour:
   force: 500
   pistol_spread: 0
   shotgun_spread: 0
-  Assault_rifle_spread: 0
+  Assault_rifle_spread: 1
   sniper_spread: 0
 --- !u!1001 &6960390530339562928
 PrefabInstance:
@@ -154,6 +154,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: e6208b5d38119f3418ce89fc5c972665, type: 3}
       propertyPath: m_Name
+      value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e6208b5d38119f3418ce89fc5c972665, type: 3}
+      propertyPath: m_TagString
       value: Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e6208b5d38119f3418ce89fc5c972665, type: 3}
