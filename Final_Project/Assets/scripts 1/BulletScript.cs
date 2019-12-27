@@ -26,6 +26,8 @@ public class BulletScript : MonoBehaviour
 
     Vector3 rand;
 
+    public float damage;
+
     // Use this for initialization
     void Start()
     {
@@ -93,5 +95,9 @@ public class BulletScript : MonoBehaviour
     public void random()
     {
         rand = new Vector3(0, Random.Range(0.0f, 1.0f), 0);
+    }
+    public void gun_stats()
+    {
+        damage  = Random.Range(0.0f, 10.0f);
     }
 }
