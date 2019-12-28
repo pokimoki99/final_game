@@ -8,6 +8,11 @@ TagManager:
   - Terrain
   - Fire
   - Bullet
+  - Pistol
+  - SMG
+  - Rifle
+  - Shotgun
+  - Sniper
   layers:
   - Default
   - TransparentFX
