@@ -15,13 +15,18 @@ public class Player : MonoBehaviour
     public GameObject sniper;
     public GameObject bullet;
 
+    static GameObject _pistol;
+
     // Start is called before the first frame update
     void Start()
     {
-        pistol.SetActive(false);
-        shotgun.SetActive(false);
-        rifle.SetActive(false);
-        sniper.SetActive(false);
+        pistol.GetComponentInChildren<Renderer>().enabled = false;
+        shotgun.GetComponentInChildren<Renderer>().enabled = false;
+        rifle.GetComponentInChildren<Renderer>().enabled = false;
+        sniper.GetComponentInChildren<Renderer>().enabled = false;
+
+        _pistol = pistol;
+
         spread.pistol_spread = false;
         spread.shotgun_spread = false;
         spread.Assault_rifle_spread = false;
@@ -53,15 +58,12 @@ public class Player : MonoBehaviour
         }
         if (score == 0)
         {
+            pistol.GetComponentInChildren<Renderer>().enabled = true;
             //GameManager.Instance.Ammo()
             spread.pistol_spread = true;
             spread.shotgun_spread = false;
             spread.Assault_rifle_spread = false;
             spread.sniper_spread = false;
-            pistol.SetActive(true);
-            shotgun.SetActive(false);
-            sniper.SetActive(false);
-            rifle.SetActive(false);
 
         }
         if (score == 1)
@@ -70,10 +72,6 @@ public class Player : MonoBehaviour
             spread.shotgun_spread = true;
             spread.Assault_rifle_spread = false;
             spread.sniper_spread = false;
-            pistol.SetActive(false);
-            shotgun.SetActive(true);
-            sniper.SetActive(false);
-            rifle.SetActive(false);
 
         }
         if (score == 2)
@@ -82,10 +80,6 @@ public class Player : MonoBehaviour
             spread.shotgun_spread = false;
             spread.pistol_spread = false;
             spread.sniper_spread = false;
-            shotgun.SetActive(false);
-            pistol.SetActive(false);
-            sniper.SetActive(false);
-            rifle.SetActive(true);
         }
         if (score == 3)
         {
@@ -93,10 +87,6 @@ public class Player : MonoBehaviour
             spread.Assault_rifle_spread = false;
             spread.shotgun_spread = false;
             spread.pistol_spread = false;
-            shotgun.SetActive(false);
-            pistol.SetActive(false);
-            rifle.SetActive(false);
-            sniper.SetActive(true);
         }
     }
     private void OnTriggerEnter(Collider other)

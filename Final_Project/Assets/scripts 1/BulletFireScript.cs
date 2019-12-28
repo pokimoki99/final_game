@@ -25,11 +25,17 @@ public class BulletFireScript : MonoBehaviour
     Vector3 gun;
     public bool rifle = false;
 
+    public GameObject Pistol, Shotgun, Rifle, Sniper;
+
 
     // Use this for initialization
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Pistol = GameObject.FindGameObjectWithTag("Pistol");
+        Shotgun = GameObject.FindGameObjectWithTag("Shotgun");
+        Rifle = GameObject.FindGameObjectWithTag("Rifle");
+        Sniper = GameObject.FindGameObjectWithTag("Sniper");
     }
 
     // Update is called once per frame
@@ -37,7 +43,7 @@ public class BulletFireScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && (GameManager.Instance.ammocount > 0))
         {
-            if (spread.shotgun_spread == true)
+            if (Shotgun.activeInHierarchy)
             {
                 spread.Assault_rifle_spread = false;
                 spread.shotgun_spread = true;
@@ -75,16 +81,16 @@ public class BulletFireScript : MonoBehaviour
 
 
             }
-            else if (spread.sniper_spread == true)
+            else if (Sniper.activeInHierarchy)
             {
                 Instantiate(bulletprefab,Gun_pos.transform.position, transform.rotation);
                 GameManager.Instance.fire();
             }
-            else if (spread.Assault_rifle_spread == true)
+            else if (Rifle.activeInHierarchy)
             {
 
             }
-            else
+            else if (Pistol.activeInHierarchy)
             {
                 Instantiate(bulletprefab, Gun_pos.transform.position, transform.rotation);
                 GameManager.Instance.fire();
@@ -93,7 +99,7 @@ public class BulletFireScript : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && (GameManager.Instance.ammocount > 0))
         {
-            if (spread.Assault_rifle_spread == true)
+            if (Rifle.activeInHierarchy)
             {
                 if (rifle == false)
                 {

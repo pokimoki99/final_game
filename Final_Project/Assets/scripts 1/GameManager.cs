@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
 
     public bool pistol, shotgun, sniper, rifle = false;
 
+
+    public static GameObject Pistol, Shotgun, Rifle, Sniper;
+
     // This is a C# property - the code below isn't using it
     // as it is accessing the private static instance directly.
     // Use this property from other classes.
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateScore();
+
     }
 
     // Update score text field
@@ -77,6 +81,11 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(gameObject);
+
+        Pistol = GameObject.FindGameObjectWithTag("Pistol");
+        Shotgun = GameObject.FindGameObjectWithTag("Shotgun");
+        Rifle = GameObject.FindGameObjectWithTag("Rifle");
+        Sniper = GameObject.FindGameObjectWithTag("Sniper");
     }
 
     // fire

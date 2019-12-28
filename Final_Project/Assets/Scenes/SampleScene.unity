@@ -1174,6 +1174,10 @@ MonoBehaviour:
   shotgun: 0
   sniper: 0
   rifle: 0
+  Pistol: {fileID: 0}
+  Shotgun: {fileID: 0}
+  Rifle: {fileID: 0}
+  Sniper: {fileID: 0}
 --- !u!4 &381316963
 Transform:
   m_ObjectHideFlags: 0
@@ -3010,6 +3014,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6960390530339962672, guid: 579788001cc97a145ac9850565f0a25f,
         type: 3}
+    - target: {fileID: 6197465798431133741, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7544040555494417215, guid: 715e523d14027df4298f31d4fe08eef5,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3025,7 +3034,54 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.095
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 920964661325280970, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 920964661325280970, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216055253381345696, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216055253381345696, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216055253619476501, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Rifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216055253619476501, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959738036016575699, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7959738036016575699, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9216055254515884808, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: m_Name
+      value: character
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 920964660453521265, guid: 715e523d14027df4298f31d4fe08eef5, type: 3}
+    - {fileID: 920964661314318090, guid: 715e523d14027df4298f31d4fe08eef5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 715e523d14027df4298f31d4fe08eef5, type: 3}
 --- !u!1 &1967451685
 GameObject:

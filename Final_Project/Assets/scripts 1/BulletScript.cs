@@ -7,11 +7,10 @@ public class BulletScript : MonoBehaviour
 
     GameManager gm;
     GameObject explosion;
-
+    
 
     public GameObject bullet;
     public GameObject explosionprefab;
-
 
     public float force = 500.0f;
 
@@ -23,34 +22,45 @@ public class BulletScript : MonoBehaviour
 
     //public healthbar _hp;
 
+    public GameObject Pistol, Shotgun, Rifle, Sniper;
 
     Vector3 rand;
-
     public float damage;
 
     // Use this for initialization
     void Start()
     {
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), GetComponent<Collider>());
-        if (shotgun_spread == true)
+
+        Pistol = GameObject.FindGameObjectWithTag("Pistol");
+        Shotgun = GameObject.FindGameObjectWithTag("Shotgun");
+        Rifle = GameObject.FindGameObjectWithTag("Rifle");
+        Sniper = GameObject.FindGameObjectWithTag("Sniper");
+
+        //if (shotgun_spread == true)
+        if (GameManager.Instance.Shotgun.activeInHierarchy)
         {
             GetComponent<Rigidbody>().AddForce(transform.forward * (force - 250.0f));
             Debug.Log("work?");
+            Pistol.SetActive(false);
 
         }
-        else if (sniper_spread == true)
+        if (Sniper.activeInHierarchy)
+        //else if (sniper_spread == true)
 
         {
             GetComponent<Rigidbody>().AddForce(transform.forward * (force * 10));
         }
-        else if (Assault_rifle_spread == true)
+        //else if (Assault_rifle_spread == true)
+        if (Rifle.activeInHierarchy)
         {
             Debug.Log("rifle?");
             GetComponent<Rigidbody>().AddForce(transform.forward * (force + 200.0f));
         }
-        else if (pistol_spread == true)
+        //else if (pistol_spread == true)
+        if (Pistol.activeInHierarchy)
         {
-            Debug.Log("pistol?");
+            //Debug.Log("pistol?");
             GetComponent<Rigidbody>().AddForce(transform.forward * force);
         }
         else

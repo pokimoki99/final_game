@@ -35,8 +35,9 @@ public class EnemyHealth : MonoBehaviour
         if (health<=0)
         {
             enemypos.transform.position = gameObject.transform.position;
-            Destroy(gameObject);
+            weapon.rarity_switch = true;
             weapon.RNG();
+            Destroy(gameObject);
         }
         if (health>maxHealth)
         {
@@ -55,7 +56,7 @@ public class EnemyHealth : MonoBehaviour
         if (col.gameObject.tag == "Bullet")
         {
 
-            Debug.Log("collision");
+            //Debug.Log("collision");
             health = health - 10.0f;
 
         }
