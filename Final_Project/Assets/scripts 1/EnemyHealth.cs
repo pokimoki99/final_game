@@ -54,6 +54,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (col.gameObject.tag == "Bullet")
         {
+
             Debug.Log("collision");
             health = health - 10.0f;
 
