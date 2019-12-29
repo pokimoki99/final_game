@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public static GameObject Pistol, Shotgun, Rifle, Sniper;
 
+    public GameObject _Pistol, _Shotgun, _Rifle, _Sniper;
+
     // This is a C# property - the code below isn't using it
     // as it is accessing the private static instance directly.
     // Use this property from other classes.
@@ -86,6 +88,13 @@ public class GameManager : MonoBehaviour
         Shotgun = GameObject.FindGameObjectWithTag("Shotgun");
         Rifle = GameObject.FindGameObjectWithTag("Rifle");
         Sniper = GameObject.FindGameObjectWithTag("Sniper");
+
+        _Pistol = Pistol;
+        _Shotgun = Shotgun;
+        _Rifle = Rifle;
+        _Sniper = Sniper;
+
+
     }
 
     // fire

@@ -1174,10 +1174,10 @@ MonoBehaviour:
   shotgun: 0
   sniper: 0
   rifle: 0
-  Pistol: {fileID: 0}
-  Shotgun: {fileID: 0}
-  Rifle: {fileID: 0}
-  Sniper: {fileID: 0}
+  _Pistol: {fileID: 0}
+  _Shotgun: {fileID: 0}
+  _Rifle: {fileID: 0}
+  _Sniper: {fileID: 0}
 --- !u!4 &381316963
 Transform:
   m_ObjectHideFlags: 0
@@ -1747,7 +1747,7 @@ GameObject:
   - component: {fileID: 883272502}
   - component: {fileID: 883272501}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 1287472662}
   - component: {fileID: 1287472661}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2942,6 +2942,16 @@ PrefabInstance:
       propertyPath: _Story_line
       value: 
       objectReference: {fileID: 381316964}
+    - target: {fileID: 920964661557070845, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: slot_1
+      value: 
+      objectReference: {fileID: 1287472661}
+    - target: {fileID: 920964661557070845, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: slot_2
+      value: 
+      objectReference: {fileID: 883272501}
     - target: {fileID: 920964661295506208, guid: 715e523d14027df4298f31d4fe08eef5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3290,7 +3300,7 @@ GameObject:
   - component: {fileID: 2097297453}
   - component: {fileID: 2097297452}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

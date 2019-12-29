@@ -27,6 +27,12 @@ public class BulletScript : MonoBehaviour
     Vector3 rand;
     public float damage;
 
+    public void Awake()
+    {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
+
     // Use this for initialization
     void Start()
     {
@@ -38,30 +44,40 @@ public class BulletScript : MonoBehaviour
         Sniper = GameObject.FindGameObjectWithTag("Sniper");
 
         //if (shotgun_spread == true)
-        if (GameManager.Instance.Shotgun.activeInHierarchy)
+        if (gm._Shotgun.activeInHierarchy)
         {
             GetComponent<Rigidbody>().AddForce(transform.forward * (force - 250.0f));
             Debug.Log("work?");
-            Pistol.SetActive(false);
+            gm._Pistol.SetActive(false);
+            gm._Sniper.SetActive(false);
+            gm._Rifle.SetActive(false);
 
         }
-        if (Sniper.activeInHierarchy)
+        if (gm._Sniper.activeInHierarchy)
         //else if (sniper_spread == true)
-
         {
             GetComponent<Rigidbody>().AddForce(transform.forward * (force * 10));
+            gm._Pistol.SetActive(false);
+            gm._Shotgun.SetActive(false);
+            gm._Rifle.SetActive(false);
         }
         //else if (Assault_rifle_spread == true)
-        if (Rifle.activeInHierarchy)
+        if (gm._Rifle.activeInHierarchy)
         {
             Debug.Log("rifle?");
             GetComponent<Rigidbody>().AddForce(transform.forward * (force + 200.0f));
+            gm._Pistol.SetActive(false);
+            gm._Sniper.SetActive(false);
+            gm._Shotgun.SetActive(false);
         }
         //else if (pistol_spread == true)
-        if (Pistol.activeInHierarchy)
+        if (gm._Pistol.activeInHierarchy)
         {
             //Debug.Log("pistol?");
             GetComponent<Rigidbody>().AddForce(transform.forward * force);
+            gm._Shotgun.SetActive(false);
+            gm._Sniper.SetActive(false);
+            gm._Rifle.SetActive(false);
         }
         else
         {
@@ -69,7 +85,7 @@ public class BulletScript : MonoBehaviour
             GetComponent<Rigidbody>().AddForce(transform.forward * force);
         }
 
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
 
 
     }

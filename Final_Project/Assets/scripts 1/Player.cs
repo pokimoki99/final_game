@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -17,13 +18,15 @@ public class Player : MonoBehaviour
 
     static GameObject _pistol;
 
+    public Image slot_1,slot_2;
+
     // Start is called before the first frame update
     void Start()
     {
-        pistol.GetComponentInChildren<Renderer>().enabled = false;
-        shotgun.GetComponentInChildren<Renderer>().enabled = false;
-        rifle.GetComponentInChildren<Renderer>().enabled = false;
-        sniper.GetComponentInChildren<Renderer>().enabled = false;
+        //pistol.GetComponentInChildren<Renderer>().enabled = false;
+        //shotgun.GetComponentInChildren<Renderer>().enabled = false;
+        //rifle.GetComponentInChildren<Renderer>().enabled = false;
+        //sniper.GetComponentInChildren<Renderer>().enabled = false;
 
         _pistol = pistol;
 
@@ -36,6 +39,70 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            if (slot_1.name=="Shotgun")
+            {
+                GameManager.Instance._Shotgun.SetActive(true);
+                GameManager.Instance._Rifle.SetActive(false);
+                GameManager.Instance._Sniper.SetActive(false);
+                GameManager.Instance._Pistol.SetActive(false);
+            }
+            else if (slot_1.name=="Rifle")
+            {
+                GameManager.Instance._Rifle.SetActive(true);
+                GameManager.Instance._Shotgun.SetActive(false);
+                GameManager.Instance._Sniper.SetActive(false);
+                GameManager.Instance._Pistol.SetActive(false);
+            }
+            if (slot_1.name=="Sniper")
+            {
+                GameManager.Instance._Sniper.SetActive(true);
+                GameManager.Instance._Shotgun.SetActive(false);
+                GameManager.Instance._Rifle.SetActive(false);
+                GameManager.Instance._Pistol.SetActive(false);
+            }
+            if (slot_1.name=="Pistol")
+            {
+                GameManager.Instance._Pistol.SetActive(true);
+                GameManager.Instance._Rifle.SetActive(false);
+                GameManager.Instance._Shotgun.SetActive(false);
+                GameManager.Instance._Sniper.SetActive(false);
+            }
+            
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            if (slot_2.name=="Shotgun")
+            {
+                GameManager.Instance._Shotgun.SetActive(true);
+                GameManager.Instance._Rifle.SetActive(false);
+                GameManager.Instance._Sniper.SetActive(false);
+                GameManager.Instance._Pistol.SetActive(false);
+            }
+            else if (slot_2.name=="Rifle")
+            {
+                GameManager.Instance._Rifle.SetActive(true);
+                GameManager.Instance._Shotgun.SetActive(false);
+                GameManager.Instance._Sniper.SetActive(false);
+                GameManager.Instance._Pistol.SetActive(false);
+            }
+            if (slot_2.name=="Sniper")
+            {
+                GameManager.Instance._Sniper.SetActive(true);
+                GameManager.Instance._Shotgun.SetActive(false);
+                GameManager.Instance._Rifle.SetActive(false);
+                GameManager.Instance._Pistol.SetActive(false);
+            }
+            if (slot_2.name=="Pistol")
+            {
+                GameManager.Instance._Pistol.SetActive(true);
+                GameManager.Instance._Rifle.SetActive(false);
+                GameManager.Instance._Shotgun.SetActive(false);
+                GameManager.Instance._Sniper.SetActive(false);
+            }
+            
+        }
         if (Input.GetKey(KeyCode.K))
         {
             score = 1;
