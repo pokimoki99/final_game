@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
         {
             if (slot_1.name=="Shotgun")
             {
+                GameManager.Instance.shotgun = false;
                 GameManager.Instance._Shotgun.SetActive(true);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
             }
             else if (slot_1.name=="Rifle")
             {
+                GameManager.Instance.rifle = false;
                 GameManager.Instance._Rifle.SetActive(true);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
@@ -57,6 +59,7 @@ public class Player : MonoBehaviour
             }
             if (slot_1.name=="Sniper")
             {
+                GameManager.Instance.sniper = false;
                 GameManager.Instance._Sniper.SetActive(true);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Rifle.SetActive(false);
@@ -64,6 +67,7 @@ public class Player : MonoBehaviour
             }
             if (slot_1.name=="Pistol")
             {
+                GameManager.Instance.pistol = false;
                 GameManager.Instance._Pistol.SetActive(true);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Shotgun.SetActive(false);
@@ -75,6 +79,7 @@ public class Player : MonoBehaviour
         {
             if (slot_2.name=="Shotgun")
             {
+                GameManager.Instance.shotgun = false;
                 GameManager.Instance._Shotgun.SetActive(true);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
@@ -82,6 +87,7 @@ public class Player : MonoBehaviour
             }
             else if (slot_2.name=="Rifle")
             {
+                GameManager.Instance.rifle = false;
                 GameManager.Instance._Rifle.SetActive(true);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
@@ -89,6 +95,7 @@ public class Player : MonoBehaviour
             }
             if (slot_2.name=="Sniper")
             {
+                GameManager.Instance.sniper = false;
                 GameManager.Instance._Sniper.SetActive(true);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Rifle.SetActive(false);
@@ -96,6 +103,7 @@ public class Player : MonoBehaviour
             }
             if (slot_2.name=="Pistol")
             {
+                GameManager.Instance.pistol = false;
                 GameManager.Instance._Pistol.SetActive(true);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Shotgun.SetActive(false);

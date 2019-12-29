@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
     }
     public void Ammo()
     {
-        if (score == 0)
+        if (_Pistol.activeInHierarchy)
         {
             if (pistol == false)
             {
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
                 pistol = true;
             }
         }
-        if (score == 1)
+        if (_Shotgun.activeInHierarchy)
         {
             if (shotgun == false)
             {
@@ -129,15 +129,16 @@ public class GameManager : MonoBehaviour
                 shotgun = true;
             }
         }
-        if (score == 2)
+        if (_Rifle.activeInHierarchy)
         {
+
             if (rifle == false)
             {
                 ammocount = 40;
                 rifle = true;
             }
         }
-        if (score == 3)
+        if (_Sniper.activeInHierarchy)
         {
             if (sniper == false)
             {
@@ -153,20 +154,20 @@ public class GameManager : MonoBehaviour
     IEnumerator Reload_mechanic()
     {
         //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+        //Debug.Log("Started Coroutine at timestamp : " + Time.time);
         yield return new WaitForSeconds(1);
         pistol = true;
         shotgun = true;
         rifle = true;
         sniper = true;
-        //yield on a new YieldInstruction that waits for 5 seconds.
+        //yield on a new YieldInstruction that waits for 1 seconds.
         pistol = false;
         shotgun = false;
         rifle = false;
         sniper = false;
         yield return new WaitForSeconds(1);
 
-        //After we have waited 5 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+        //After we have waited 2 seconds print the time again.
+        //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }
