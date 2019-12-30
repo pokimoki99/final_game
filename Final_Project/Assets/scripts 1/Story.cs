@@ -37,7 +37,7 @@ public class Story : MonoBehaviour
             text = "Asuna: Lets figure out my surroundings" + Environment.NewLine + " to see if I can find some clues as to where I am.";
             yield return new WaitForSecondsRealtime(2);
             wait = 0;
-            Debug.Log(wait);
+            //Debug.Log(wait);
             yield return new WaitForSecondsRealtime(0.1f);
             break;
         }
@@ -73,7 +73,7 @@ public class Story : MonoBehaviour
         text = "Asuna: OK, I have been attacked by monsters (normal thing that happens daily in my life)," + Environment.NewLine +
             " but the scenary is beautiful… still need to figure out where the exit is.";
 
-        Debug.Log("check1");
+        //Debug.Log("check1");
         StartCoroutine("Travel");
         Update();
     }

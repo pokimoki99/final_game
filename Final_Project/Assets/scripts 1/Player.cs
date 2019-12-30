@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.name == "Checkpoint_1")
         {
             _Story_line.Checkpoint_1();
-            Debug.Log("collide");
+            //Debug.Log("collide");
         }
         //Destory(other.gameOject);
     }

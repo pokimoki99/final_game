@@ -915,7 +915,6 @@ GameObject:
   - component: {fileID: 381316963}
   - component: {fileID: 381316962}
   - component: {fileID: 381316964}
-  - component: {fileID: 381316965}
   - component: {fileID: 381316966}
   m_Layer: 0
   m_Name: GameManager
@@ -975,20 +974,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Story_text: {fileID: 1161212872}
---- !u!114 &381316965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381316961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fcf7818388ea4f42aeec0eda613f1af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rarity_switch: 0
-  enemy_pos: {fileID: 0}
 --- !u!114 &381316966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2250,38 +2235,6 @@ Transform:
   m_Father: {fileID: 646932078}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -25.316002, z: 0}
---- !u!1 &1916244545 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3031563260905133485, guid: cd68940e5ff007240a75affeb4a76e95,
-    type: 3}
-  m_PrefabInstance: {fileID: 6427669861569017679}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1916244546 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2105666570175674176, guid: cd68940e5ff007240a75affeb4a76e95,
-    type: 3}
-  m_PrefabInstance: {fileID: 6427669861569017679}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916244545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47554198e0d7e1f47be88db573d59ed6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1916244547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916244545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fcf7818388ea4f42aeec0eda613f1af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rarity_switch: 0
-  enemy_pos: {fileID: 1916244546}
 --- !u!1 &1925553439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,16 +2993,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 2105666570175674176, guid: cd68940e5ff007240a75affeb4a76e95,
-        type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 1916244547}
-    - target: {fileID: 2105666570175674176, guid: cd68940e5ff007240a75affeb4a76e95,
-        type: 3}
-      propertyPath: enemypos
-      value: 
-      objectReference: {fileID: 1916244545}
     - target: {fileID: 2038194811054778302, guid: cd68940e5ff007240a75affeb4a76e95,
         type: 3}
       propertyPath: m_LocalPosition.x

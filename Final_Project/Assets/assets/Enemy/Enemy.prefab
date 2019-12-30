@@ -1119,6 +1119,7 @@ GameObject:
   - component: {fileID: 6427669862731398292}
   - component: {fileID: 2105666570175674176}
   - component: {fileID: 1916244552}
+  - component: {fileID: 1916244547}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1237,6 +1238,8 @@ MonoBehaviour:
   maxHealth: 100
   healthBarUI: {fileID: 9093653778073294802}
   slider: {fileID: 2646259193894521234}
+  enemypos: {fileID: 3031563260905133485}
+  weapon: {fileID: 1916244547}
 --- !u!54 &1916244552
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1253,6 +1256,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1916244547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031563260905133485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fcf7818388ea4f42aeec0eda613f1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rarity_switch: 0
+  pistol: {fileID: 6675196972392181935, guid: 2560e70f62e229c4480982658d9c67ea, type: 3}
+  shotgun: {fileID: 8716199989905486842, guid: 7c3f51819c04a874cb2c496899f94286, type: 3}
+  smg: {fileID: 4083424032633998777, guid: 066b8097d13e84a438ff63a794805e73, type: 3}
+  rifle: {fileID: 5298342561094025800, guid: 6fb18e42564da0b489acb2ab62fa4a4b, type: 3}
+  sniper: {fileID: 580438290919518063, guid: f7f0d744d98a9a340adc1664a7b8dc0d, type: 3}
+  enemy_pos: {fileID: 2105666570175674176}
 --- !u!1 &3031897760057259653
 GameObject:
   m_ObjectHideFlags: 0

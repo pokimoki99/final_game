@@ -15,12 +15,13 @@ public class EnemyHealth : MonoBehaviour
     //weapon drop
     public Weapon_RNG weapon;
 
+    public int death;
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         slider.value = CalculateHealth();
-        enemypos.transform.position = gameObject.transform.position;
 
     }
 
@@ -38,6 +39,7 @@ public class EnemyHealth : MonoBehaviour
             weapon.rarity_switch = true;
             weapon.RNG();
             Destroy(gameObject);
+            death++;
         }
         if (health>maxHealth)
         {

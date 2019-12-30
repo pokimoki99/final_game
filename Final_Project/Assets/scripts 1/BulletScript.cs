@@ -47,7 +47,7 @@ public class BulletScript : MonoBehaviour
         if (gm._Shotgun.activeInHierarchy)
         {
             GetComponent<Rigidbody>().AddForce(transform.forward * (force - 250.0f));
-            Debug.Log("work?");
+            //Debug.Log("work?");
             gm._Pistol.SetActive(false);
             gm._Sniper.SetActive(false);
             gm._Rifle.SetActive(false);
@@ -64,7 +64,7 @@ public class BulletScript : MonoBehaviour
         //else if (Assault_rifle_spread == true)
         if (gm._Rifle.activeInHierarchy)
         {
-            Debug.Log("rifle?");
+            //Debug.Log("rifle?");
             GetComponent<Rigidbody>().AddForce(transform.forward * (force + 200.0f));
             gm._Pistol.SetActive(false);
             gm._Sniper.SetActive(false);
@@ -81,8 +81,7 @@ public class BulletScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("something else?");
-            GetComponent<Rigidbody>().AddForce(transform.forward * force);
+
         }
 
 
