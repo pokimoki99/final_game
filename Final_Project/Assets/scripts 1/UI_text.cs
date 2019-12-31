@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class UI_text : MonoBehaviour
 {
-    bool hasCollided;
-    string labelText;
+    public bool hasCollided;
+    public string labelText,type_again;
     EnemyHealth dead;
     int dead_marker;
     public List<string> weapon;
+    Weapon_RNG type;
 
     private void Start()
     {
         dead = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyHealth>();
+        type = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Weapon_RNG>();
 
     }
 
@@ -21,7 +23,10 @@ public class UI_text : MonoBehaviour
     {
         if (hasCollided == true)
         {
+            type_again = type.weapon;
+            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2.05f, 200, 60), "Weapon : " +type.weapon);
             GUI.Label(new Rect(Screen.width/2, Screen.height/2, 200, 60), "Range : " + labelText +" DPS");
+            GUI.Label(new Rect(Screen.width/2, Screen.height/1.75f, 200, 60), "Press E to pick up");
         }
     }
 

@@ -17,11 +17,23 @@ public class EnemyHealth : MonoBehaviour
 
     public int death;
 
+    GameManager gm;
+
+    Player _dps;
+    public float Shotgun_dps = 20;
+    public float Pistol_dps = 30;
+    public float Rifle_dps = 5;
+    public float Sniper_dps = 90;
+
+    string type;
+
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
         slider.value = CalculateHealth();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _dps = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
     }
 
@@ -46,6 +58,34 @@ public class EnemyHealth : MonoBehaviour
             health = maxHealth;
         }
 
+        if (_dps.pick_up)
+        {
+            type = _dps._type;
+            if (type == "Shotgun")
+            {
+                Shotgun_dps = float.Parse(_dps.dps);
+                _dps.pick_up = false;
+            }
+            else if (type == "Rifle")
+            {
+                Rifle_dps = float.Parse(_dps.dps);
+                _dps.pick_up = false;
+            }
+            else if (type == "Sniper")
+            {
+                Sniper_dps = float.Parse(_dps.dps);
+                _dps.pick_up = false;
+            }
+            else if (type == "Pistol")
+            {
+                Pistol_dps = float.Parse(_dps.dps);
+                _dps.pick_up = false;
+            }
+
+        }
+
+
+
     }
     float CalculateHealth()
     {
@@ -57,9 +97,23 @@ public class EnemyHealth : MonoBehaviour
 
         if (col.gameObject.tag == "Bullet")
         {
+            if (gm._Shotgun.activeInHierarchy)
+            {
+                health = health - Shotgun_dps;
+            }
+            if (gm._Sniper.activeInHierarchy)
+            {
+                health = health - Sniper_dps;
+            }
+            if (gm._Rifle.activeInHierarchy)
+            {
+                health = health - Rifle_dps;
+            }
+            if (gm._Pistol.activeInHierarchy)
+            {
+                health = health - Pistol_dps;
+            }
 
-            //Debug.Log("collision");
-            health = health - 10.0f;
 
         }
     }

@@ -7,12 +7,16 @@ public class BulletScript : MonoBehaviour
 
     GameManager gm;
     GameObject explosion;
+    Player _pick;
     
 
     public GameObject bullet;
     public GameObject explosionprefab;
 
-    public float force = 500.0f;
+    public float Shotgun_force = 500.0f;
+    public float Pistol_force = 500.0f;
+    public float Rifle_force = 500.0f;
+    public float Sniper_force = 500.0f;
 
 
     public bool pistol_spread = false;
@@ -25,17 +29,21 @@ public class BulletScript : MonoBehaviour
     public GameObject Pistol, Shotgun, Rifle, Sniper;
 
     Vector3 rand;
-    public float damage;
+    public float range;
+
+    string type;
 
     public void Awake()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        _pick = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
 
     // Use this for initialization
     void Start()
     {
+       
         Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), GetComponent<Collider>());
 
         Pistol = GameObject.FindGameObjectWithTag("Pistol");
@@ -43,10 +51,36 @@ public class BulletScript : MonoBehaviour
         Rifle = GameObject.FindGameObjectWithTag("Rifle");
         Sniper = GameObject.FindGameObjectWithTag("Sniper");
 
+        if (_pick.pick_up)
+        {
+            type = _pick._type;
+            if (type=="Shotgun")
+            {
+                Shotgun_force = float.Parse(_pick.range);
+                _pick.pick_up = false;
+            }
+            else if (type=="Rifle")
+            {
+                Rifle_force = float.Parse(_pick.range);
+                _pick.pick_up = false;
+            }
+            else if (type=="Sniper")
+            {
+                Sniper_force = float.Parse(_pick.range);
+                _pick.pick_up = false;
+            }
+            else if (type=="Pistol")
+            {
+                Pistol_force = float.Parse(_pick.range);
+                _pick.pick_up = false;
+            }
+
+        }
+
         //if (shotgun_spread == true)
         if (gm._Shotgun.activeInHierarchy)
         {
-            GetComponent<Rigidbody>().AddForce(transform.forward * (force - 250.0f));
+            GetComponent<Rigidbody>().AddForce(transform.forward * (Shotgun_force - 250.0f));
             //Debug.Log("work?");
             gm._Pistol.SetActive(false);
             gm._Sniper.SetActive(false);
@@ -56,7 +90,7 @@ public class BulletScript : MonoBehaviour
         if (gm._Sniper.activeInHierarchy)
         //else if (sniper_spread == true)
         {
-            GetComponent<Rigidbody>().AddForce(transform.forward * (force * 10));
+            GetComponent<Rigidbody>().AddForce(transform.forward * (Sniper_force * 10));
             gm._Pistol.SetActive(false);
             gm._Shotgun.SetActive(false);
             gm._Rifle.SetActive(false);
@@ -65,7 +99,7 @@ public class BulletScript : MonoBehaviour
         if (gm._Rifle.activeInHierarchy)
         {
             //Debug.Log("rifle?");
-            GetComponent<Rigidbody>().AddForce(transform.forward * (force + 200.0f));
+            GetComponent<Rigidbody>().AddForce(transform.forward * (Rifle_force + 200.0f));
             gm._Pistol.SetActive(false);
             gm._Sniper.SetActive(false);
             gm._Shotgun.SetActive(false);
@@ -74,7 +108,7 @@ public class BulletScript : MonoBehaviour
         if (gm._Pistol.activeInHierarchy)
         {
             //Debug.Log("pistol?");
-            GetComponent<Rigidbody>().AddForce(transform.forward * force);
+            GetComponent<Rigidbody>().AddForce(transform.forward * Pistol_force);
             gm._Shotgun.SetActive(false);
             gm._Sniper.SetActive(false);
             gm._Rifle.SetActive(false);
@@ -117,12 +151,5 @@ public class BulletScript : MonoBehaviour
         }
 
     }
-    public void random()
-    {
-        rand = new Vector3(0, Random.Range(0.0f, 1.0f), 0);
-    }
-    public void gun_stats()
-    {
-        damage  = Random.Range(0.0f, 10.0f);
-    }
+
 }

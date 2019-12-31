@@ -13,6 +13,7 @@ TagManager:
   - Rifle
   - Shotgun
   - Sniper
+  - weapon_pick_up
   layers:
   - Default
   - TransparentFX

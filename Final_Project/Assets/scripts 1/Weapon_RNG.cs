@@ -13,6 +13,8 @@ public class Weapon_RNG : MonoBehaviour
 
     public EnemyHealth enemy_pos;
 
+    public string weapon;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -37,6 +39,7 @@ public class Weapon_RNG : MonoBehaviour
             if (weapon_type == 0)
             {
                 Pistol();
+                weapon = "Pistol";
                 rarity = Random.Range(0, 1000000);
                 Random_system();
                 rarity_switch = false;
@@ -46,6 +49,7 @@ public class Weapon_RNG : MonoBehaviour
             else if (weapon_type == 1)
             {
                 Shotgun();
+                weapon = "Shotgun";
                 rarity = Random.Range(0, 1000000);
                 Random_system();
                 rarity_switch = false;
@@ -55,6 +59,7 @@ public class Weapon_RNG : MonoBehaviour
             if (weapon_type == 2)
             {
                 SMG();
+                weapon = "SMG";
                 rarity = Random.Range(0, 1000000);
                 Random_system();
                 rarity_switch = false;
@@ -64,6 +69,7 @@ public class Weapon_RNG : MonoBehaviour
             if (weapon_type == 3)
             {
                 Rifle();
+                weapon = "Rifle";
                 rarity = Random.Range(0, 1000000);
                 Random_system();
                 rarity_switch = false;
@@ -73,6 +79,7 @@ public class Weapon_RNG : MonoBehaviour
             if (weapon_type == 4)
             {
                 Sniper();
+                weapon = "Sniper";
                 rarity = Random.Range(0, 1000000);
                 Random_system();
                 rarity_switch = false;

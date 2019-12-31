@@ -2407,6 +2407,30 @@ PrefabInstance:
       propertyPath: slot_2
       value: 
       objectReference: {fileID: 883272501}
+    - target: {fileID: 920964661557070845, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: Pistol_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 83fef54ee7e06084d974b4b5f49baeab,
+        type: 3}
+    - target: {fileID: 920964661557070845, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: Rifle_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: df0676af8457f73459316fecf42561ef,
+        type: 3}
+    - target: {fileID: 920964661557070845, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: Shotgun_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a4af7b0c286b25745977f7c2cdc7d029,
+        type: 3}
+    - target: {fileID: 920964661557070845, guid: 715e523d14027df4298f31d4fe08eef5,
+        type: 3}
+      propertyPath: Sniper_sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dc9258c8b35c8a4469e9fcef9c0d19ee,
+        type: 3}
     - target: {fileID: 920964661295506208, guid: 715e523d14027df4298f31d4fe08eef5,
         type: 3}
       propertyPath: m_LocalPosition.x

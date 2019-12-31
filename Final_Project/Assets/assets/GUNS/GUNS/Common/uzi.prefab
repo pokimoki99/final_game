@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1402422179578159858}
   m_Layer: 0
   m_Name: uzi
-  m_TagString: Untagged
+  m_TagString: weapon_pick_up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4845,6 +4845,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad582d5825df99840a3948366e28b0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCollided: 0
+  labelText: 
+  weapon: []
 --- !u!65 &1402422179578159858
 BoxCollider:
   m_ObjectHideFlags: 0
