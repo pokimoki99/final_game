@@ -14,6 +14,8 @@ TagManager:
   - Shotgun
   - Sniper
   - weapon_pick_up
+  - scope
+  - reticle
   layers:
   - Default
   - TransparentFX
