@@ -7,6 +7,7 @@ public class Player_Health : MonoBehaviour
 {
     public float health;
     public float maxHealth;
+    public float healthRegenAmount;
 
     public GameObject healthBarUI;
     public Slider slider;
@@ -36,6 +37,8 @@ public class Player_Health : MonoBehaviour
         if (health < maxHealth)
         {
             healthBarUI.SetActive(true);
+            health += healthRegenAmount * Time.deltaTime;
+
         }
         if (health <= 0)
         {
