@@ -2284,6 +2284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  healthRegenAmount: 5
   healthBarUI: {fileID: 202331271}
   slider: {fileID: 1313370928}
   death: 0
