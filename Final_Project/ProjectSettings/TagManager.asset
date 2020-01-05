@@ -16,6 +16,7 @@ TagManager:
   - weapon_pick_up
   - scope
   - reticle
+  - Enemy_Bullet
   layers:
   - Default
   - TransparentFX

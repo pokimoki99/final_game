@@ -8,7 +8,7 @@ public class Enemy_Bullet : MonoBehaviour
 
     public GameObject bullet;
 
-    public float force = 500.0f;
+    public float force = 1000.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +35,7 @@ public class Enemy_Bullet : MonoBehaviour
         }
         if (col.gameObject.tag == "Player")
         {
+            Debug.Log("Hit player");
             Destroy(gameObject);
         }
     }

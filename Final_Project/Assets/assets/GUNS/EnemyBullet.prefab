@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6960390530339463952}
-  force: 500
+  force: 1000
 --- !u!1001 &6960390530339562928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: e6208b5d38119f3418ce89fc5c972665, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Enemy_Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e6208b5d38119f3418ce89fc5c972665, type: 3}
       propertyPath: m_LocalPosition.x
