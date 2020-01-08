@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         _Shotgun = Shotgun;
         _Rifle = Rifle;
         _Sniper = Sniper;
-        _SMG = Sniper;
+        _SMG = SMG;
 
 
     }

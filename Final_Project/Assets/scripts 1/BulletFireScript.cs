@@ -25,7 +25,7 @@ public class BulletFireScript : MonoBehaviour
     Vector3 gun;
     public bool rifle = false;
 
-    public GameObject Pistol, Shotgun, Rifle, Sniper;
+    public GameObject Pistol, Shotgun, Rifle, Sniper, SMG;
 
 
     // Use this for initialization
@@ -36,6 +36,7 @@ public class BulletFireScript : MonoBehaviour
         Shotgun = GameObject.FindGameObjectWithTag("Shotgun");
         Rifle = GameObject.FindGameObjectWithTag("Rifle");
         Sniper = GameObject.FindGameObjectWithTag("Sniper");
+        SMG = GameObject.FindGameObjectWithTag("SMG");
     }
 
     // Update is called once per frame
@@ -90,6 +91,10 @@ public class BulletFireScript : MonoBehaviour
             {
 
             }
+            else if (SMG.activeInHierarchy)
+            {
+
+            }
             else if (Pistol.activeInHierarchy)
             {
                 Instantiate(bulletprefab, Gun_pos.transform.position, transform.rotation);
@@ -107,17 +112,35 @@ public class BulletFireScript : MonoBehaviour
                     gun = new Vector3(Assault_pos.transform.position.x, Assault_pos.transform.position.y, Assault_pos.transform.position.z);
                     Instantiate(bulletprefab, gun, transform.rotation);
                     GameManager.Instance.fire();
-                    StartCoroutine(Rapid());
+                    StartCoroutine(Rapid_Rifle());
+                }
+
+            }
+            if (SMG.activeInHierarchy)
+            {
+                if (rifle == false)
+                {
+                    spread.shotgun_spread = false;
+                    gun = new Vector3(Assault_pos.transform.position.x, Assault_pos.transform.position.y, Assault_pos.transform.position.z);
+                    Instantiate(bulletprefab, gun, transform.rotation);
+                    GameManager.Instance.fire();
+                    StartCoroutine(Rapid_SMG());
                 }
 
             }
 
         }
     }
-    IEnumerator Rapid()
+    IEnumerator Rapid_Rifle()
     {
         rifle = true;
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
+        rifle = false;
+    } 
+    IEnumerator Rapid_SMG()
+    {
+        rifle = true;
+        yield return new WaitForSeconds(0.01f);
         rifle = false;
     }
 }
