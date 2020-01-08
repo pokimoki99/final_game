@@ -11,12 +11,12 @@ public class GameManager : MonoBehaviour
 
     public int score = 0;
 
-    public bool pistol, shotgun, sniper, rifle = false;
+    public bool pistol, shotgun, sniper, rifle, smg = false;
 
 
-    public static GameObject Pistol, Shotgun, Rifle, Sniper;
+    public static GameObject Pistol, Shotgun, Rifle, Sniper,SMG;
 
-    public GameObject _Pistol, _Shotgun, _Rifle, _Sniper;
+    public GameObject _Pistol, _Shotgun, _Rifle, _Sniper,_SMG;
 
     // This is a C# property - the code below isn't using it
     // as it is accessing the private static instance directly.
@@ -88,11 +88,13 @@ public class GameManager : MonoBehaviour
         Shotgun = GameObject.FindGameObjectWithTag("Shotgun");
         Rifle = GameObject.FindGameObjectWithTag("Rifle");
         Sniper = GameObject.FindGameObjectWithTag("Sniper");
+        SMG = GameObject.FindGameObjectWithTag("SMG");
 
         _Pistol = Pistol;
         _Shotgun = Shotgun;
         _Rifle = Rifle;
         _Sniper = Sniper;
+        _SMG = Sniper;
 
 
     }
@@ -146,6 +148,14 @@ public class GameManager : MonoBehaviour
                 sniper = true;
             }
         }
+        if (_SMG.activeInHierarchy)
+        {
+            if (smg == false)
+            {
+                ammocount = 30;
+                smg = true;
+            }
+        }
     }
     public void Reload()
     {
@@ -160,11 +170,13 @@ public class GameManager : MonoBehaviour
         shotgun = true;
         rifle = true;
         sniper = true;
+        smg = true;
         //yield on a new YieldInstruction that waits for 1 seconds.
         pistol = false;
         shotgun = false;
         rifle = false;
         sniper = false;
+        smg = false;
         yield return new WaitForSeconds(1);
 
         //After we have waited 2 seconds print the time again.

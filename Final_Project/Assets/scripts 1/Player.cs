@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameObject shotgun;
     public GameObject rifle;
     public GameObject sniper;
+    public GameObject smg;
     public GameObject bullet;
 
     static GameObject _pistol;
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
     UI_text weapon_pick_up;
     Weapon_RNG type;
 
-    public Sprite Pistol_sprite, Shotgun_sprite, Sniper_sprite, Rifle_sprite;
+    public Sprite Pistol_sprite, Shotgun_sprite, Sniper_sprite, Rifle_sprite,SMG_sprite;
 
     public string dps, range,_type;
     public bool pick_up;
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour
             {
                 GameManager.Instance.shotgun = false;
                 GameManager.Instance._Shotgun.SetActive(true);
+                GameManager.Instance._SMG.SetActive(false);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
                 GameManager.Instance._Pistol.SetActive(false);
@@ -65,27 +67,39 @@ public class Player : MonoBehaviour
             {
                 GameManager.Instance.rifle = false;
                 GameManager.Instance._Rifle.SetActive(true);
+                GameManager.Instance._SMG.SetActive(false);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
                 GameManager.Instance._Pistol.SetActive(false);
             }
-            if (slot_1.name=="Sniper")
+            else if (slot_1.name=="Sniper")
             {
                 GameManager.Instance.sniper = false;
                 GameManager.Instance._Sniper.SetActive(true);
+                GameManager.Instance._SMG.SetActive(false);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Pistol.SetActive(false);
             }
-            if (slot_1.name=="Pistol")
+            else if (slot_1.name=="Pistol")
             {
                 GameManager.Instance.pistol = false;
                 GameManager.Instance._Pistol.SetActive(true);
+                GameManager.Instance._SMG.SetActive(false);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
             }
-            
+            else if (slot_1.name == "SMG")
+            {
+                GameManager.Instance.smg = false;
+                GameManager.Instance._Pistol.SetActive(false);
+                GameManager.Instance._SMG.SetActive(true);
+                GameManager.Instance._Rifle.SetActive(false);
+                GameManager.Instance._Shotgun.SetActive(false);
+                GameManager.Instance._Sniper.SetActive(false);
+            }
+
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
@@ -94,6 +108,7 @@ public class Player : MonoBehaviour
             {
                 GameManager.Instance.shotgun = false;
                 GameManager.Instance._Shotgun.SetActive(true);
+                GameManager.Instance._SMG.SetActive(false);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
                 GameManager.Instance._Pistol.SetActive(false);
@@ -102,22 +117,34 @@ public class Player : MonoBehaviour
             {
                 GameManager.Instance.rifle = false;
                 GameManager.Instance._Rifle.SetActive(true);
+                GameManager.Instance._SMG.SetActive(false);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
                 GameManager.Instance._Pistol.SetActive(false);
             }
-            if (slot_2.name=="Sniper")
+            else if(slot_2.name=="Sniper")
             {
                 GameManager.Instance.sniper = false;
                 GameManager.Instance._Sniper.SetActive(true);
+                GameManager.Instance._SMG.SetActive(false);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Pistol.SetActive(false);
             }
-            if (slot_2.name=="Pistol")
+            else if(slot_2.name=="Pistol")
             {
                 GameManager.Instance.pistol = false;
                 GameManager.Instance._Pistol.SetActive(true);
+                GameManager.Instance._SMG.SetActive(false);
+                GameManager.Instance._Rifle.SetActive(false);
+                GameManager.Instance._Shotgun.SetActive(false);
+                GameManager.Instance._Sniper.SetActive(false);
+            }
+            else if(slot_2.name=="SMG")
+            {
+                GameManager.Instance.smg = false;
+                GameManager.Instance._Pistol.SetActive(false);
+                GameManager.Instance._SMG.SetActive(true);
                 GameManager.Instance._Rifle.SetActive(false);
                 GameManager.Instance._Shotgun.SetActive(false);
                 GameManager.Instance._Sniper.SetActive(false);
@@ -188,6 +215,19 @@ public class Player : MonoBehaviour
                     {
                         slot_2.name = "Sniper";
                         slot_2.sprite = Sniper_sprite;
+                    }
+                }
+                else if (_type == "SMG")
+                {
+                    if (check == 1)
+                    {
+                        slot_1.name = "SMG";
+                        slot_1.sprite = SMG_sprite;
+                    }
+                    else if (check == 2)
+                    {
+                        slot_2.name = "SMG";
+                        slot_2.sprite = SMG_sprite;
                     }
                 }
             }

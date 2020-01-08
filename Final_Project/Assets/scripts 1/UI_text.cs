@@ -24,9 +24,9 @@ public class UI_text : MonoBehaviour
         if (hasCollided == true)
         {
             type_again = type.weapon;
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2.05f, 200, 60), "Weapon : " +type.weapon);
-            GUI.Label(new Rect(Screen.width/2, Screen.height/2, 200, 60), "Range : " + labelText +" DPS");
-            GUI.Label(new Rect(Screen.width/2, Screen.height/1.75f, 200, 60), "Press E to pick up");
+            GUI.Label(new Rect(Screen.width/4, Screen.height / 2.15f, 200, 60), "Weapon : " +type.weapon);
+            GUI.Label(new Rect(Screen.width/4, Screen.height/2, 200, 60), "Range : " + labelText +" DPS");
+            GUI.Label(new Rect(Screen.width/4, Screen.height/1.75f, 200, 60), "Press E to pick up");
         }
     }
 
