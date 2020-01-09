@@ -45,14 +45,12 @@ public class Story : MonoBehaviour
 
     private IEnumerator Travel()
     {
-       
-            while (true)
-            { 
-                yield return new WaitForSecondsRealtime(3);
-                wait = 0;
-                yield return new WaitForSecondsRealtime(0.1f);
-                break;
-            }
+
+         yield return new WaitForSecondsRealtime(3);
+
+         //yield return new WaitForSecondsRealtime(0.1f);
+        wait = 0;
+
 
     }
     // Update is called once per frame
@@ -62,6 +60,7 @@ public class Story : MonoBehaviour
         if (wait==0)
         {
             //Debug.Log(wait);
+            wait = 1;
             Traveltxt();
         }
         

@@ -240,20 +240,44 @@ public class Player : MonoBehaviour
         if (other.gameObject.name == "Checkpoint_1")
         {
             _Story_line.Checkpoint_1();
-            //Debug.Log("collide");
-        }
-        //Destory(other.gameOject);
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.name == "Checkpoint_1")
-        {
             Destroy(other.gameObject);
-            Enemy_spawner._enemy_spawn.spawn();
-            Enemy_spawner._enemy_spawn.spawn();
-            Enemy_spawner._enemy_spawn.spawn();
+            for (int i = 0; i < 10; i++)
+            {
+                Enemy_spawner._enemy_spawn.spawn(0,0);
+            }
         }
 
+        if (other.gameObject.name == "Checkpoint_2")
+        {
+            _Story_line.Checkpoint_2();
+            Destroy(other.gameObject);
+            Enemy_spawner._enemy_spawn.spawn(0,0);
+        }
+
+        if (other.gameObject.name == "Checkpoint_2A")
+        {
+            _Story_line.Checkpoint_2A();
+            Destroy(other.gameObject);
+            Enemy_spawner._enemy_spawn.spawn(-15,-15);
+            Enemy_spawner._enemy_spawn.spawn(-15, -15);
+            Enemy_spawner._enemy_spawn.spawn(-15, -15);
+        }
+        if (other.gameObject.name == "Checkpoint_2B")
+        {
+            _Story_line.Checkpoint_2B();
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.name == "Checkpoint_3")
+        {
+            _Story_line.Checkpoint_3();
+            Destroy(other.gameObject);
+        }
     }
+    //private void OnTriggerExit(Collider other)
+    //{
+
+      
+
+    //}
 
 }
