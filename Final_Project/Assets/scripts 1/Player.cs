@@ -258,9 +258,9 @@ public class Player : MonoBehaviour
         {
             _Story_line.Checkpoint_2A();
             Destroy(other.gameObject);
-            Enemy_spawner._enemy_spawn.spawn(-15,-15);
-            Enemy_spawner._enemy_spawn.spawn(-15, -15);
-            Enemy_spawner._enemy_spawn.spawn(-15, -15);
+            Enemy_spawner._enemy_spawn.spawn(+50, +55);
+            Enemy_spawner._enemy_spawn.spawn(+50, +55);
+            Enemy_spawner._enemy_spawn.spawn(+50, +55);
         }
         if (other.gameObject.name == "Checkpoint_2B")
         {
