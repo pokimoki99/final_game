@@ -547,6 +547,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7281541229316552926}
+  - component: {fileID: 154795077773590830}
   m_Layer: 0
   m_Name: Hips
   m_TagString: Untagged
@@ -571,6 +572,25 @@ Transform:
   m_Father: {fileID: 2038194811054778302}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &154795077773590830
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637563675768939966}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0e14cb9d4d5c8474a9de9fcd9bae20d3, type: 3}
+  m_Controller: {fileID: 9100000, guid: aa8309f9d00b8d147b9fa4e66c810730, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1803898797850249621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1169,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2038194811054778302}
-  - component: {fileID: 8269484814602750660}
   - component: {fileID: 6427669862731398291}
   - component: {fileID: 6427669862731398293}
   - component: {fileID: 6427669862731398292}
@@ -1182,25 +1201,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8269484814602750660
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3031563260905133485}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 093870610c4404e499aa53218c9aaa7e, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!136 &6427669862731398291
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1292,6 +1292,11 @@ MonoBehaviour:
   slider: {fileID: 994661385536373143}
   enemypos: {fileID: 3031563260905133485}
   weapon: {fileID: 947261923315996355}
+  death: 0
+  Shotgun_dps: 20
+  Pistol_dps: 30
+  Rifle_dps: 5
+  Sniper_dps: 90
 --- !u!114 &947261923315996355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1311,6 +1316,7 @@ MonoBehaviour:
   rifle: {fileID: 5298342561094025800, guid: 6fb18e42564da0b489acb2ab62fa4a4b, type: 3}
   sniper: {fileID: 580438290919518063, guid: f7f0d744d98a9a340adc1664a7b8dc0d, type: 3}
   enemy_pos: {fileID: 2768460059695635751}
+  weapon: 
 --- !u!1 &3031897760057259653
 GameObject:
   m_ObjectHideFlags: 0

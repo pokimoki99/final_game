@@ -23,7 +23,7 @@ public class EnemyAI : MonoBehaviour
     //Playerhp playerHealth;                  // Reference to the player's health.
 
     float timer;                                // Timer for counting up to the next attack.
-    enum AIState { Patrolling, Shooting, Chasing };
+    enum AIState { Patrolling, Shooting, Chasing, Idle };
 
     AIState state;
 
@@ -33,6 +33,12 @@ public class EnemyAI : MonoBehaviour
     bool loc;
 
     public GameObject bulletpos;
+
+
+    public Animator anim;
+    float speed;
+    bool afk;
+    int idle_anim_selector;
 
     //Text messagetext;
 
@@ -47,7 +53,8 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         patrolWayPoints = FindObjectsOfType<DrawWaypoint>();
-       
+
+        anim = this.gameObject.GetComponent<Animator>();
 
         state = AIState.Patrolling;
 
@@ -79,14 +86,24 @@ public class EnemyAI : MonoBehaviour
                 break;
             case AIState.Patrolling:
                 Patrolling();
+                break;
+            case AIState.Idle:
+                Idle();
 
                 break;
         }
         
         enemydist = Vector3.Distance(player.transform.position, transform.position);
-        if (enemydist >= 10)
+        if (enemydist >= 20)
         {
-            state = AIState.Patrolling;
+            if (!afk)
+            {
+                state = AIState.Patrolling;
+                anim.SetFloat("Speed", 1.1f);
+                anim.SetBool("Shoot", false);
+            }
+
+
         }
         if (enemydist <= 20 && enemydist >= 11)
         {
@@ -95,7 +112,12 @@ public class EnemyAI : MonoBehaviour
         }
         if (enemydist <= 10)
         {
-            //state = AIState.Chasing;
+            if (!afk)
+            {
+                state = AIState.Patrolling;
+                anim.SetFloat("Speed", 1.1f);
+                anim.SetBool("Shoot", false);
+            }
         }
         if (timer >= timeBetweenAttacks && enemydist  <= 5)
         {
@@ -119,16 +141,22 @@ public class EnemyAI : MonoBehaviour
     }
     void Shooting()
     {
-
+        anim.SetBool("Shoot", true);
         nav.speed = 0;
         var rotation = Quaternion.LookRotation(player.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 0.5f);
         if (enemy == false)
         {
-            Instantiate(enemybullet, bulletpos.transform.position, transform.rotation);
-            StartCoroutine(Rapid());
-        }
 
+                if (anim.GetBool("Shoot") && (!anim.GetBool("IsShooting")))
+                {
+                    anim.SetBool("IsShooting", true);
+                    Instantiate(enemybullet, bulletpos.transform.position, transform.rotation);
+                    StartCoroutine(Rapid());
+
+            }
+        }
+        afk = false;
     }
 
 
@@ -155,9 +183,43 @@ public class EnemyAI : MonoBehaviour
         {
 
         }
+        if (nav.remainingDistance <= 2)
+        {
+            anim.SetFloat("Speed", 0);
+            afk = true;
+            state = AIState.Idle;
+
+        }
+        Debug.Log(nav.remainingDistance);
 
 
+    }
+    void Idle()
+    {
+        nav.speed = 0;
+        StartCoroutine(Idle_anim());
+        
+        if (idle_anim_selector==1)
+        {
+            if (anim.GetBool("IsIdle"))
+            {
+                anim.SetFloat("idle", 0);
+                afk = false;
+                StartCoroutine(patrol_idle());
 
+            }
+
+        }
+        else if (idle_anim_selector==2)
+        {
+            if (anim.GetBool("IsIdle"))
+            {
+                anim.SetFloat("idle", 1);
+                afk = false;
+                StartCoroutine(patrol_idle());
+
+            }
+        }
     }
 
     IEnumerator Rapid()
@@ -165,6 +227,18 @@ public class EnemyAI : MonoBehaviour
         enemy = true;
         yield return new WaitForSeconds(1.5f);
         enemy = false;
+        anim.SetBool("Shoot", false);
+        anim.SetBool("IsShooting", false);
+    }
+    IEnumerator Idle_anim()
+    {
+        yield return new WaitForSeconds(5.0f);
+        idle_anim_selector = Random.Range(0, 2);
+    }
+    IEnumerator patrol_idle()
+    {
+        yield return new WaitForSeconds(5.0f);
+        state = AIState.Patrolling;
     }
 
     void location()

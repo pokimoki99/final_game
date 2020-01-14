@@ -86,6 +86,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b147729fa54ae43a1a60c2f7acf065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1383770879425446150
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8131677029214340242}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 093870610c4404e499aa53218c9aaa7e, type: 3}
+  m_Controller: {fileID: 9100000, guid: aa8309f9d00b8d147b9fa4e66c810730, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8809371989982414248
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +298,8 @@ PrefabInstance:
       propertyPath: enemy_pos
       value: 
       objectReference: {fileID: 4614999472765664267}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8269484814602750660, guid: 42eaa318a7174724bbef2ee50bad6f62, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 42eaa318a7174724bbef2ee50bad6f62, type: 3}
 --- !u!4 &8802656220423571090 stripped
 Transform:
@@ -299,3 +319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47554198e0d7e1f47be88db573d59ed6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8131677029214340242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1637563675768939966, guid: 42eaa318a7174724bbef2ee50bad6f62,
+    type: 3}
+  m_PrefabInstance: {fileID: 7376982295502922028}
+  m_PrefabAsset: {fileID: 0}
