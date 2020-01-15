@@ -547,7 +547,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7281541229316552926}
-  - component: {fileID: 154795077773590830}
   m_Layer: 0
   m_Name: Hips
   m_TagString: Untagged
@@ -572,25 +571,6 @@ Transform:
   m_Father: {fileID: 2038194811054778302}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &154795077773590830
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637563675768939966}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 0e14cb9d4d5c8474a9de9fcd9bae20d3, type: 3}
-  m_Controller: {fileID: 9100000, guid: aa8309f9d00b8d147b9fa4e66c810730, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1803898797850249621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1155,7 @@ GameObject:
   - component: {fileID: 5992424710259662520}
   - component: {fileID: 2768460059695635751}
   - component: {fileID: 947261923315996355}
+  - component: {fileID: 8563253755811143234}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -1236,6 +1217,7 @@ MonoBehaviour:
   enemybullet: {fileID: 6960390530339962672, guid: 1ad2ef442c5ac794cbce62e9a2a48488,
     type: 3}
   bulletpos: {fileID: 6427669862340021244}
+  anim: {fileID: 0}
 --- !u!195 &6427669862731398292
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1317,6 +1299,25 @@ MonoBehaviour:
   sniper: {fileID: 580438290919518063, guid: f7f0d744d98a9a340adc1664a7b8dc0d, type: 3}
   enemy_pos: {fileID: 2768460059695635751}
   weapon: 
+--- !u!95 &8563253755811143234
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3031563260905133485}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 093870610c4404e499aa53218c9aaa7e, type: 3}
+  m_Controller: {fileID: 9100000, guid: aa8309f9d00b8d147b9fa4e66c810730, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3031897760057259653
 GameObject:
   m_ObjectHideFlags: 0
