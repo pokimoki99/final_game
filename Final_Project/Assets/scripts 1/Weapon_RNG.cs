@@ -11,14 +11,26 @@ public class Weapon_RNG : MonoBehaviour
 
     public GameObject pistol, shotgun, smg, rifle, sniper;
 
-    public EnemyHealth enemy_pos;
+    public EnemyHealth enemy_position;
+    public Boss_Health boss_pos;
+    GameObject enemy_pos;
+
 
     public string weapon;
+
+    public string Monster_type;
 
     // Start is called before the first frame update
     public void Start()
     {
-
+        if (gameObject.tag=="Boss")
+        {
+            enemy_pos = boss_pos.enemypos;
+        }
+        else if (gameObject.tag=="Enemy")
+        {
+            enemy_pos = enemy_position.enemypos;
+        }
     }
 
     private void Awake()
@@ -182,28 +194,28 @@ public class Weapon_RNG : MonoBehaviour
 
     public void Pistol()
     {
-        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
+        gun = new Vector3(enemy_pos.transform.position.x, enemy_pos.transform.position.y + 0.4f, enemy_pos.transform.position.z);
         Instantiate(pistol, gun, transform.rotation);
     }
     public void Shotgun()
     {
-        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
+        gun = new Vector3(enemy_pos.transform.position.x, enemy_pos.transform.position.y + 0.4f, enemy_pos.transform.position.z);
         Instantiate(shotgun, gun, transform.rotation);
     }
     public void SMG()
     {
-        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
+        gun = new Vector3(enemy_pos.transform.position.x, enemy_pos.transform.position.y + 0.4f, enemy_pos.transform.position.z);
         Instantiate(smg, gun, transform.rotation);
 
     }
     public void Rifle()
     {
-        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
+        gun = new Vector3(enemy_pos.transform.position.x, enemy_pos.transform.position.y + 0.4f, enemy_pos.transform.position.z);
         Instantiate(rifle, gun, transform.rotation);
     }
     public void Sniper()
     {
-        gun = new Vector3(enemy_pos.enemypos.transform.position.x, enemy_pos.enemypos.transform.position.y + 0.4f, enemy_pos.enemypos.transform.position.z);
+        gun = new Vector3(enemy_pos.transform.position.x, enemy_pos.transform.position.y + 0.4f, enemy_pos.transform.position.z);
         Instantiate(sniper, gun, transform.rotation);
     }
 }

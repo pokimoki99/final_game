@@ -136,6 +136,11 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
 
         }
+        if (col.gameObject.tag == "Boss")
+        {
+            Destroy(gameObject);
+
+        }
         if (col.gameObject.tag == "Player")
         {
             gm.incscore(1);
