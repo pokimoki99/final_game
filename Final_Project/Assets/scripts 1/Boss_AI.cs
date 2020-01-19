@@ -10,28 +10,33 @@ public class Boss_AI : MonoBehaviour
     private Transform player;                               // Reference to the player's transform.
     private GameObject play;
 
-    private GameManager GameManager;
     public string text;
-    public float timeBetweenAttacks = 0.9f;     // The time in seconds between each attack.
+    public float timeBetweenAttacks = 3.0f;     // The time in seconds between each attack.
     public int attackDamage = 10;               // The amount of health taken away per attack.
     //Playerhp playerHealth;                  // Reference to the player's health.
 
-    float timer;                                // Timer for counting up to the next attack.
+    float timer=3;                                // Timer for counting up to the next attack.
     enum AIState { Chasing, Attacking };
 
     AIState state;
 
     float enemydist;   //how far away is enemy
-    bool enemy;
-    bool loc;
+
 
 
     public Animator anim;
-    float speed;
-    bool afk;
-    int idle_anim_selector;
+
+    int attack;
 
     //Text messagetext;
+
+
+    //Colliders
+    public GameObject Leg_Sweep;
+    public GameObject Swipe;
+    public GameObject Cast;
+    public GameObject Punch;
+    public GameObject Kick;
 
     void Awake()
     {
@@ -44,7 +49,8 @@ public class Boss_AI : MonoBehaviour
 
         anim = this.gameObject.GetComponent<Animator>();
 
-        state = AIState.Chasing;
+        anim.SetBool("IsBattlecry",true);
+        StartCoroutine(battlecry_timer());
 
         //messagetext = GameObject.Find("MessageText").GetComponent<Text>();
 
@@ -78,24 +84,88 @@ public class Boss_AI : MonoBehaviour
         {
 
             state = AIState.Attacking;
-            timer = 0;
-
         }
-
+        Debug.Log(timer);
     }
 
 
     void Chasing()
     {
-        nav.destination = player.transform.position;
-        nav.speed = chaseSpeed;
-        nav.isStopped = false;
+        nav.speed = 0;
+        //nav.destination = player.transform.position;
+        //nav.speed = chaseSpeed;
+        //nav.isStopped = false;
     }
 
     void Attacking()
     {
-        nav.speed = 0;
+        if (timer >= timeBetweenAttacks)
+        { 
 
+            nav.speed = 0;
+            if (attack == 0)
+            {
+                anim.SetBool("IsAttacking", true);
+                //anim.SetFloat("attack", 0);
+                StartCoroutine(Attack_timer());
+                Debug.Log("Leg_Sweep");
+                //legsweep
+            }
+            else if (attack == 1)
+            {
+                anim.SetBool("IsAttacking", true);
+                //anim.SetFloat("attack", 0.25f);
+                StartCoroutine(Attack_timer());
+                Debug.Log("Swipe");
+                //clawattack
+            }
+            else if (attack == 2)
+            {
+                anim.SetBool("IsAttacking", true);
+                //anim.SetFloat("attack", 0.5f);
+                StartCoroutine(Attack_timer());
+                Debug.Log("cast");
+                //cast
+            }
+            else if (attack == 3)
+            {
+                anim.SetBool("IsAttacking", true);
+                //anim.SetFloat("attack", 0.75f);
+                StartCoroutine(Attack_timer());
+                Debug.Log("punch");
+                //swipe
+            }
+            else if (attack == 4)
+            {
+                anim.SetBool("IsAttacking", true);
+                anim.SetFloat("attack", 1);
+                StartCoroutine(Attack_timer());
+                Debug.Log("kick");
+            }
+
+
+
+        }
+    }
+
+    void attack_type()
+    {
+        attack = Random.Range(0, 4);
+    }
+
+    IEnumerator Attack_timer()
+    {
+        yield return new WaitForSeconds(2.8f);
+        anim.SetBool("IsAttacking", false);
+        timer = 0;
+        attack_type();
+    }
+   IEnumerator battlecry_timer()
+    {
+        yield return new WaitForSeconds(2.8f);
+        anim.SetBool("IsBattlecry", false);
+        yield return new WaitForSeconds(0.00001f);
+        state = AIState.Chasing;
     }
 
 }

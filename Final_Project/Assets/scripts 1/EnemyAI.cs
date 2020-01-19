@@ -190,7 +190,6 @@ public class EnemyAI : MonoBehaviour
             state = AIState.Idle;
 
         }
-        Debug.Log(nav.remainingDistance);
 
 
     }
