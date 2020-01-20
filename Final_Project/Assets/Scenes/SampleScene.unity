@@ -2451,7 +2451,7 @@ GameObject:
   - component: {fileID: 1164451807}
   - component: {fileID: 1164451808}
   m_Layer: 0
-  m_Name: Leg Sweep
+  m_Name: Leg_Sweep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
