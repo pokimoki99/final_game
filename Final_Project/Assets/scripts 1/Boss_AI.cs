@@ -106,7 +106,7 @@ public class Boss_AI : MonoBehaviour
             if (attack == 0)
             {
                 anim.SetBool("IsAttacking", true);
-                //anim.SetFloat("attack", 0);
+                anim.SetFloat("attack", 0);
                 StartCoroutine(Attack_timer());
                 Debug.Log("Leg_Sweep");
                 //legsweep
@@ -114,7 +114,7 @@ public class Boss_AI : MonoBehaviour
             else if (attack == 1)
             {
                 anim.SetBool("IsAttacking", true);
-                //anim.SetFloat("attack", 0.25f);
+                anim.SetFloat("attack", 0.25f);
                 StartCoroutine(Attack_timer());
                 Debug.Log("Swipe");
                 //clawattack
@@ -122,7 +122,7 @@ public class Boss_AI : MonoBehaviour
             else if (attack == 2)
             {
                 anim.SetBool("IsAttacking", true);
-                //anim.SetFloat("attack", 0.5f);
+                anim.SetFloat("attack", 0.5f);
                 StartCoroutine(Attack_timer());
                 Debug.Log("cast");
                 //cast
@@ -130,7 +130,7 @@ public class Boss_AI : MonoBehaviour
             else if (attack == 3)
             {
                 anim.SetBool("IsAttacking", true);
-                //anim.SetFloat("attack", 0.75f);
+                anim.SetFloat("attack", 0.75f);
                 StartCoroutine(Attack_timer());
                 Debug.Log("punch");
                 //swipe
