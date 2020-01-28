@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
     public float Shotgun_dps = 20;
     public float Pistol_dps = 30;
     public float Rifle_dps = 5;
+    public float Smg_dps = 5;
     public float Sniper_dps = 90;
 
     string type;
@@ -49,7 +50,7 @@ public class EnemyHealth : MonoBehaviour
         {
             enemypos.transform.position = gameObject.transform.position;
             weapon.rarity_switch = true;
-            weapon.RNG();
+            weapon.RNG(10);
             Destroy(gameObject);
             death++;
         }
@@ -79,6 +80,11 @@ public class EnemyHealth : MonoBehaviour
             else if (type == "Pistol")
             {
                 Pistol_dps = float.Parse(_dps.dps);
+                _dps.pick_up = false;
+            }
+            else if (type == "SMG")
+            {
+                Smg_dps = float.Parse(_dps.dps);
                 _dps.pick_up = false;
             }
 
@@ -112,6 +118,10 @@ public class EnemyHealth : MonoBehaviour
             if (gm._Pistol.activeInHierarchy)
             {
                 health = health - Pistol_dps;
+            }
+            if (gm._SMG.activeInHierarchy)
+            {
+                health = health - Smg_dps;
             }
 
 

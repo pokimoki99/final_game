@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Enemy_spawner : MonoBehaviour
 {
     public Transform enemyprefab;
+    public Transform Boss_prefab;
     public Player _player;
 
     public static Enemy_spawner _enemy_spawn
@@ -41,6 +42,12 @@ public class Enemy_spawner : MonoBehaviour
         //Vector3 enemy = new Vector3(_player.transform.position.x + random(), _player.transform.position.y, _player.transform.position.z + random());
         Vector3 enemy = new Vector3(_player.transform.position.x + random2() +x, _player.transform.position.y-5.0f, _player.transform.position.z - random()+z);
         Instantiate(enemyprefab, enemy, transform.rotation);
+    }
+    public void Boss_spawn(float x,float z)
+    {
+        //Vector3 enemy = new Vector3(_player.transform.position.x + random(), _player.transform.position.y, _player.transform.position.z + random());
+        Vector3 Boss = new Vector3(_player.transform.position.x +x, _player.transform.position.y-5.0f, _player.transform.position.z +z);
+        Instantiate(Boss_prefab, Boss, transform.rotation);
     }
 
     // Update is called once per frame

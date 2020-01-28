@@ -50,7 +50,7 @@ public class Boss_Health : MonoBehaviour
         {
             enemypos.transform.position = gameObject.transform.position;
             weapon.rarity_switch = true;
-            weapon.RNG();
+            weapon.RNG(-300000);
             Destroy(gameObject);
             death++;
         }

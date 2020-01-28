@@ -271,6 +271,7 @@ public class Player : MonoBehaviour
         {
             _Story_line.Checkpoint_3();
             Destroy(other.gameObject);
+            Enemy_spawner._enemy_spawn.Boss_spawn(-5.0f, +50.0f);
         }
     }
     //private void OnTriggerExit(Collider other)

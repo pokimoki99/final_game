@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Weapon_RNG : MonoBehaviour
 {
-    int rarity,weapon_type;
+    int rarity,weapon_type,rng_redu;
     public bool rarity_switch = false;
     Vector3 gun;
     float damage, range;
@@ -27,9 +27,13 @@ public class Weapon_RNG : MonoBehaviour
         {
             enemy_pos = boss_pos.enemypos;
         }
-        else if (gameObject.tag=="Enemy")
+        if (gameObject.tag=="Enemy")
         {
             enemy_pos = enemy_position.enemypos;
+        }
+        else
+        {
+            enemy_pos=this.gameObject;
         }
     }
 
@@ -42,9 +46,9 @@ public class Weapon_RNG : MonoBehaviour
         PlayerPrefs.DeleteKey("Common");
     }
 
-    public void RNG()
+    public void RNG( int booster)
     {
-
+        rng_redu = booster;
         if (rarity_switch == true)
         {
             Weapon_type();
@@ -52,7 +56,7 @@ public class Weapon_RNG : MonoBehaviour
             {
                 Pistol();
                 weapon = "Pistol";
-                rarity = Random.Range(0, 1000000);
+                rarity = Random.Range(0, 1000000) - booster;
                 Random_system();
                 rarity_switch = false;
                 Debug.Log("pistol");
@@ -62,7 +66,7 @@ public class Weapon_RNG : MonoBehaviour
             {
                 Shotgun();
                 weapon = "Shotgun";
-                rarity = Random.Range(0, 1000000);
+                rarity = Random.Range(0, 1000000) - booster;
                 Random_system();
                 rarity_switch = false;
                 Debug.Log("shotgun");
@@ -72,7 +76,7 @@ public class Weapon_RNG : MonoBehaviour
             {
                 SMG();
                 weapon = "SMG";
-                rarity = Random.Range(0, 1000000);
+                rarity = Random.Range(0, 1000000) - booster;
                 Random_system();
                 rarity_switch = false;
                 Debug.Log("smg");
@@ -82,7 +86,7 @@ public class Weapon_RNG : MonoBehaviour
             {
                 Rifle();
                 weapon = "Rifle";
-                rarity = Random.Range(0, 1000000);
+                rarity = Random.Range(0, 1000000) - booster;
                 Random_system();
                 rarity_switch = false;
                 Debug.Log("rifle");
@@ -92,7 +96,7 @@ public class Weapon_RNG : MonoBehaviour
             {
                 Sniper();
                 weapon = "Sniper";
-                rarity = Random.Range(0, 1000000);
+                rarity = Random.Range(0, 1000000) - booster;
                 Random_system();
                 rarity_switch = false;
                 Debug.Log("sniper");
@@ -114,12 +118,7 @@ public class Weapon_RNG : MonoBehaviour
     }
     public void Random_system()
     {
-        //60+ common
-        //30+ Uncommon
-        //10+ Rare
-        //3+ Epic
-        //0+ Legendary
-        //Debug.Log(rarity);
+
         if (rarity >= 300000)//Common   (55%)
         {
             COMMON();
@@ -136,9 +135,13 @@ public class Weapon_RNG : MonoBehaviour
         {
             EPIC();
         }
-        if (rarity > 0 && rarity < 2)//LEGENDARY (0.0001%)
+        if (rarity > -1000 && rarity < 2)//LEGENDARY (0.0001%)
         {
             LEGENDARY();
+        }
+        if (rarity <=-1000)
+        {
+            RNG(rng_redu);
         }
     }
     // Update is called once per frame

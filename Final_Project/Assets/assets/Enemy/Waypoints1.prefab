@@ -298,6 +298,11 @@ PrefabInstance:
       propertyPath: enemy_pos
       value: 
       objectReference: {fileID: 4614999472765664267}
+    - target: {fileID: 947261923315996355, guid: 42eaa318a7174724bbef2ee50bad6f62,
+        type: 3}
+      propertyPath: enemy_position
+      value: 
+      objectReference: {fileID: 4614999472765664267}
     m_RemovedComponents:
     - {fileID: 8269484814602750660, guid: 42eaa318a7174724bbef2ee50bad6f62, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 42eaa318a7174724bbef2ee50bad6f62, type: 3}

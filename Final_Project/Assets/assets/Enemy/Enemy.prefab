@@ -1245,6 +1245,7 @@ MonoBehaviour:
   Shotgun_dps: 20
   Pistol_dps: 30
   Rifle_dps: 5
+  Smg_dps: 5
   Sniper_dps: 90
 --- !u!54 &1916244552
 Rigidbody:
@@ -1280,8 +1281,10 @@ MonoBehaviour:
   smg: {fileID: 4083424032633998777, guid: 066b8097d13e84a438ff63a794805e73, type: 3}
   rifle: {fileID: 5298342561094025800, guid: 6fb18e42564da0b489acb2ab62fa4a4b, type: 3}
   sniper: {fileID: 580438290919518063, guid: f7f0d744d98a9a340adc1664a7b8dc0d, type: 3}
-  enemy_pos: {fileID: 2105666570175674176}
+  enemy_position: {fileID: 2105666570175674176}
+  boss_pos: {fileID: 0}
   weapon: 
+  Monster_type: 
 --- !u!1 &3031897760057259653
 GameObject:
   m_ObjectHideFlags: 0

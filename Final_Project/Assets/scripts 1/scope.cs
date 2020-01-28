@@ -11,13 +11,12 @@ public class scope : MonoBehaviour
     GameObject scopeOverlay;
     GameObject reticleOverlay;
 
-    public GameObject weapon_camera;
-
     public void Awake()
     {
         scopeOverlay = GameObject.FindWithTag("scope");
         reticleOverlay = GameObject.FindWithTag("reticle");
         scopeOverlay.SetActive(!true);
+
     }
 
     void Update()
@@ -39,7 +38,7 @@ public class scope : MonoBehaviour
     {
         scopeOverlay.SetActive(!true);
         reticleOverlay.SetActive(true);
-        weapon_camera.SetActive(true);
+
     }
     IEnumerator onScoped()
     {
@@ -47,6 +46,7 @@ public class scope : MonoBehaviour
 
         scopeOverlay.SetActive(true);
         reticleOverlay.SetActive(!true);
-        weapon_camera.SetActive(false);
+
+
     }
 }

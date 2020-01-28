@@ -17,16 +17,18 @@ public class BulletScript : MonoBehaviour
     public float Pistol_force = 500.0f;
     public float Rifle_force = 500.0f;
     public float Sniper_force = 500.0f;
+    public float SMG_force = 500.0f;
 
 
     public bool pistol_spread = false;
     public bool shotgun_spread = false;
     public bool Assault_rifle_spread = false;
     public bool sniper_spread = false;
+    public bool smg_spread = false;
 
     //public healthbar _hp;
 
-    public GameObject Pistol, Shotgun, Rifle, Sniper;
+    public GameObject Pistol, Shotgun, Rifle, Sniper, Smg;
 
     Vector3 rand;
     public float range;
@@ -50,6 +52,7 @@ public class BulletScript : MonoBehaviour
         Shotgun = GameObject.FindGameObjectWithTag("Shotgun");
         Rifle = GameObject.FindGameObjectWithTag("Rifle");
         Sniper = GameObject.FindGameObjectWithTag("Sniper");
+        Smg = GameObject.FindGameObjectWithTag("SMG");
 
         if (_pick.pick_up)
         {
@@ -74,6 +77,11 @@ public class BulletScript : MonoBehaviour
                 Pistol_force = float.Parse(_pick.range);
                 _pick.pick_up = false;
             }
+            else if (type=="SMG")
+            {
+                SMG_force = float.Parse(_pick.range);
+                _pick.pick_up = false;
+            }
 
         }
 
@@ -85,15 +93,17 @@ public class BulletScript : MonoBehaviour
             gm._Pistol.SetActive(false);
             gm._Sniper.SetActive(false);
             gm._Rifle.SetActive(false);
+            gm._SMG.SetActive(false);
 
         }
         if (gm._Sniper.activeInHierarchy)
         //else if (sniper_spread == true)
         {
-            GetComponent<Rigidbody>().AddForce(transform.forward * (Sniper_force * 10));
+            GetComponent<Rigidbody>().AddForce(transform.forward * (Sniper_force * 3));
             gm._Pistol.SetActive(false);
             gm._Shotgun.SetActive(false);
             gm._Rifle.SetActive(false);
+            gm._SMG.SetActive(false);
         }
         //else if (Assault_rifle_spread == true)
         if (gm._Rifle.activeInHierarchy)
@@ -103,6 +113,16 @@ public class BulletScript : MonoBehaviour
             gm._Pistol.SetActive(false);
             gm._Sniper.SetActive(false);
             gm._Shotgun.SetActive(false);
+            gm._SMG.SetActive(false);
+        }
+        if (gm._SMG.activeInHierarchy)
+        {
+            //Debug.Log("rifle?");
+            GetComponent<Rigidbody>().AddForce(transform.forward * (SMG_force + 200.0f));
+            gm._Pistol.SetActive(false);
+            gm._Sniper.SetActive(false);
+            gm._Shotgun.SetActive(false);
+            gm._Rifle.SetActive(false);
         }
         //else if (pistol_spread == true)
         if (gm._Pistol.activeInHierarchy)
@@ -112,6 +132,7 @@ public class BulletScript : MonoBehaviour
             gm._Shotgun.SetActive(false);
             gm._Sniper.SetActive(false);
             gm._Rifle.SetActive(false);
+            gm._SMG.SetActive(false);
         }
         else
         {
