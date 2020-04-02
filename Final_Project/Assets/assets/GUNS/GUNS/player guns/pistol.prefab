@@ -117,7 +117,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4917032068280077757}
   - component: {fileID: 4917032068290349149}
-  - component: {fileID: 4917032067405991974}
   m_Layer: 0
   m_Name: pistol
   m_TagString: Untagged
@@ -158,35 +157,6 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &4917032067405991974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4917032068280373661}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32b07e819fd53364994bfedf5d261c87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletprefab: {fileID: 6960390530339962672, guid: 757c3c2698cb4fe478baf4b3bfc302e6,
-    type: 3}
-  Gun_pos: {fileID: 4917032067148276398}
-  Shotgun_pos: {fileID: 0}
-  Shotgun_pos_1: {fileID: 0}
-  Shotgun_pos_2: {fileID: 0}
-  Shotgun_pos_3: {fileID: 0}
-  Shotgun_pos_4: {fileID: 0}
-  Shotgun_pos_5: {fileID: 0}
-  Assault_pos: {fileID: 5258835368866714037}
-  spread: {fileID: 616501448812119199, guid: 757c3c2698cb4fe478baf4b3bfc302e6, type: 3}
-  rifle: 0
-  Pistol: {fileID: 0}
-  Shotgun: {fileID: 0}
-  Rifle: {fileID: 0}
-  Sniper: {fileID: 0}
-  SMG: {fileID: 0}
 --- !u!1 &4917032068280373663
 GameObject:
   m_ObjectHideFlags: 0

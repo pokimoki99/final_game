@@ -18,6 +18,9 @@ TagManager:
   - reticle
   - Enemy_Bullet
   - Boss
+  - backpack
+  - Sword
+  - hands
   layers:
   - Default
   - TransparentFX
